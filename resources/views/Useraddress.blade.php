@@ -6,10 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">{{ __('Update Useraddress') }}</div>
-
-
-                <div class="card-body">
-                   
+                <div class="card-body">      
                     <form method="POST" action="{{ route('useraddressupdate') }}">
                         @csrf
 

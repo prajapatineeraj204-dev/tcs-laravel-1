@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('cat_name');
             $table->string('cat_des');
-            $table->string('cat_img');
+            $table->string('cat_img')->nullable();
             $table->integer('status')->default(1)->comment('1 for active and 0 for false');
             $table->timestamps();
         });
