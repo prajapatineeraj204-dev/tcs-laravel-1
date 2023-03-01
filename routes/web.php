@@ -42,8 +42,8 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::get('/subcatdelete/{id}', [App\Http\Controllers\SubCategoryController::class, 'subCatDelete'])->name('subcatdelete');
 
-
-    Route::get('/product', [App\Http\Controllers\ProductController::class, 'index'])->name('product');
+    Route::resource('product', App\Http\Controllers\ProductController::class);
+    
     Route::get('/getsubcategory', [App\Http\Controllers\ProductController::class, 'getsubcategory'])->name('getsubcategory');
 
 });

@@ -170,35 +170,6 @@
       });
       ///file upload ///
     </script>
-     <script type="text/javascript">
-      $('#stock').attr('disabled');
-      $('#validationChech').click(function(){
-        if(this.checked == true){
-          $('#stock').removeAttr('disabled');
-        }else{
-          $('#stock').attr('disabled','disabled');
-        }
-      });
-   </script>
-
-   <script type="text/javascript">
-      $('#parentcat').on('change', function() {
-         var catid = this.value;
-          $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-           });
-         $.ajax({
-            url:"/admin/getsubcategory/",
-            type:"GET",
-            data:{id:catid},
-            success:function(result){
-              $('#subcategory').html(result);
-              console.log(result);
-            }
-         });
-      });
-   </script>
+  @stack('js');
 </body>
 </html>

@@ -25,7 +25,6 @@ class CategoryController extends Controller
         $type = $request->file->getClientMimeType();
         $size = $request->file->getSize();            
         $upload = $request->file->move(public_path('categoryimg'), $fileName);
-        // $image =  url('categoryimg/'.$fileName);
         $category->cat_img = $fileName;
         $category->save();
         return redirect('admin/category'); 
@@ -45,6 +44,14 @@ class CategoryController extends Controller
         $category->cat_name =  $request->post('cat_name');
         $category->cat_des =  $request->post('cat_des');
         $category->status =  $request->post('status');
+        if(isset($request->file)){
+            $fileName = auth()->id() . '_' . time() . '.'. $request->file->extension();  
+            $type = $request->file->getClientMimeType();
+            $size = $request->file->getSize();            
+            $upload = $request->file->move(public_path('categoryimg'), $fileName);
+            unlink(public_path('categoryimg/').$category->cat_img);
+            $category->cat_img = $fileName;   
+        }
         $category->save();
         return redirect('admin/category');  
    }

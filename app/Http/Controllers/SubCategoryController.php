@@ -28,7 +28,6 @@ class SubCategoryController extends Controller
         $type = $request->file->getClientMimeType();
         $size = $request->file->getSize();            
         $upload = $request->file->move(public_path('subcategoryimg'), $fileName);
-        // $image =  url('categoryimg/'.$fileName);
         $subcategory->subcat_img = $fileName;
         $subcategory->save();
         return redirect('admin/subcategory'); 
@@ -49,7 +48,15 @@ class SubCategoryController extends Controller
         $subcategory->subcat_name =  $request->post('subcat_name');
         $subcategory->subcat_des =  $request->post('subcat_des');
         $subcategory->status =  $request->post('status');
-        $subcategory->catid = $request->post('catid');        
+        $subcategory->catid = $request->post('catid');   
+        if(isset($request->file)){
+            $fileName = auth()->id() . '_' . time() . '.'. $request->file->extension();  
+            $type = $request->file->getClientMimeType();
+            $size = $request->file->getSize();            
+            $upload = $request->file->move(public_path('subcategoryimg'), $fileName);
+            unlink(public_path('subcategoryimg/').$subcategory->subcat_img);
+            $subcategory->subcat_img = $fileName;
+        }     
         $subcategory->save();
         return redirect('admin/subcategory');  
    }
