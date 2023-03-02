@@ -46,5 +46,8 @@ Route::group(['prefix' => 'admin'], function () {
     
     Route::get('/getsubcategory', [App\Http\Controllers\ProductController::class, 'getsubcategory'])->name('getsubcategory');
 
+    Route::resource('order', App\Http\Controllers\OrderController::class);
+
+
 });
 

@@ -226,7 +226,7 @@
         var saleprice = $('#saleprice').val();
         var regprice = $('#regprice').val();
         if(regprice > saleprice){
-          alert('Warning!! Saleing Price Will be greater then Regural Price')
+          alert('Warning!! Saleing Price Will be greater then Regural Price');
          event.preventDefault();
         }
      })
