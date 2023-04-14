@@ -115,7 +115,7 @@
                           </a>
                           <a href="{{ route('userdelete',base64_encode($user->id)) }}"  class="btn btn-danger me-2 btn-sm"><i class="fas fa-trash"></i>
                           </a>
-                          <!-- <a href="javascript:void(0)" data-token="{{ csrf_token() }}" onClick="deleteuser('{{ $user->id }}')" class="btn btn-danger me-2 btn-sm"><i class="fas fa-trash"></i>
+                          <!-- <a href="javascript:void(0)" data-token="{{ csrf_token() }}" onClick="deleteuser('{{ $user->id }}')" class="btn btn-danger me-2 btn-sm"><i  class="fas fa-trash"></i>
                           </a> -->
 
                           <a href="{{ route('useredit',base64_encode($user->id)) }}" class="btn btn-info btn-sm"><i class="fas fa-edit"></i>

@@ -17,7 +17,7 @@
           <div class="tab-pane fade show active" id="catlist" role="tabpanel" aria-labelledby="catlist-tab">
             <table id="catlist" class="table table-striped" style="width:100%">
               <thead class="thead-light">
-                <tr>
+                 <tr>
                   <th scope="col" class="sort" data-sort="image">S No.</th>
                   <th scope="col" class="sort" data-sort="image">Product Image</th>
                   <th scope="col" class="sort" data-sort="name">Product Name</th>
@@ -60,8 +60,10 @@
                   <div class="mb-3">
                     <label class="form-label" for="validationCustom01">Select User</label>
                     <select class="form-select" name="catid" id="parentcat">
-                      <option>Select User</option>                       
-                      <option value=""></option>
+                      <option>Select User</option>  
+                      @foreach($users as $value)                     
+                      <option value="{{ $value['name'] }}">{{ $value['name'] }}</option>
+                      @endforeach
                     </select>
                   </div>
                 </div>
