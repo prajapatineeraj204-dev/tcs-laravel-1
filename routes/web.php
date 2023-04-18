@@ -19,7 +19,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::group(['prefix' => 'super-admin'], function ()   {
+     Route::get('/', [App\Http\Controllers\SuperAdminController::class, 'index']);
+});
+
 Route::group(['prefix' => 'admin'], function () {
+
     Route::get('/', [App\Http\Controllers\AdminController::class, 'index']);
     Route::get('/users', [App\Http\Controllers\AdminController::class, 'users'])->name('users');
     Route::post('/adduser', [App\Http\Controllers\AdminController::class, 'adduser'])->name('adduser');
@@ -48,6 +53,7 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::resource('order', App\Http\Controllers\OrderController::class);
 
-
 });
+
+
 
