@@ -25,6 +25,11 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <style rel="stylesheet">
+        .accordion-item{
+            color: black !important;
+        }
+        </style>
 </head>
 <body class="">
     <div id="app">

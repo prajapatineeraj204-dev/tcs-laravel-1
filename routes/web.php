@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GroupController;
+use App\Http\Controllers\ConversationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +25,11 @@ Route::group(['prefix' => 'super-admin'], function ()   {
      Route::get('/', [App\Http\Controllers\SuperAdminController::class, 'index']);
 });
 
-Route::group(['prefix' => 'admin'], function () {
+Route::resource('groups', GroupController::class);
+Route::resource('conversations', ConversationController::class);
 
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/chat', [App\Http\Controllers\HomeController::class, 'chat']);
     Route::get('/', [App\Http\Controllers\AdminController::class, 'index']);
     Route::get('/users', [App\Http\Controllers\AdminController::class, 'users'])->name('users');
     Route::post('/adduser', [App\Http\Controllers\AdminController::class, 'adduser'])->name('adduser');

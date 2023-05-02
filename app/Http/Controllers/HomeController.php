@@ -24,5 +24,15 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     
+     public function chat(){
+        $groups = auth()->user()->groups;
+
+        $users = User::where('id', '<>', auth()->user()->id)->get();
+        $user = auth()->user();
+        // dd($groups);
+
+        return view('chat', ['groups' => $groups, 'users' => $users, 'user' => $user]);
+        // return view('chat');
+     }
 
 }
