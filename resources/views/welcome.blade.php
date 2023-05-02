@@ -1,132 +1,1062 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--tw-bg-opacity: 1;background-color:rgb(255 255 255 / var(--tw-bg-opacity))}.bg-gray-100{--tw-bg-opacity: 1;background-color:rgb(243 244 246 / var(--tw-bg-opacity))}.border-gray-200{--tw-border-opacity: 1;border-color:rgb(229 231 235 / var(--tw-border-opacity))}.border-t{border-top-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{--tw-shadow: 0 1px 3px 0 rgb(0 0 0 / .1), 0 1px 2px -1px rgb(0 0 0 / .1);--tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000),var(--tw-ring-shadow, 0 0 #0000),var(--tw-shadow)}.text-center{text-align:center}.text-gray-200{--tw-text-opacity: 1;color:rgb(229 231 235 / var(--tw-text-opacity))}.text-gray-300{--tw-text-opacity: 1;color:rgb(209 213 219 / var(--tw-text-opacity))}.text-gray-400{--tw-text-opacity: 1;color:rgb(156 163 175 / var(--tw-text-opacity))}.text-gray-500{--tw-text-opacity: 1;color:rgb(107 114 128 / var(--tw-text-opacity))}.text-gray-600{--tw-text-opacity: 1;color:rgb(75 85 99 / var(--tw-text-opacity))}.text-gray-700{--tw-text-opacity: 1;color:rgb(55 65 81 / var(--tw-text-opacity))}.text-gray-900{--tw-text-opacity: 1;color:rgb(17 24 39 / var(--tw-text-opacity))}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--tw-bg-opacity: 1;background-color:rgb(31 41 55 / var(--tw-bg-opacity))}.dark\:bg-gray-900{--tw-bg-opacity: 1;background-color:rgb(17 24 39 / var(--tw-bg-opacity))}.dark\:border-gray-700{--tw-border-opacity: 1;border-color:rgb(55 65 81 / var(--tw-border-opacity))}.dark\:text-white{--tw-text-opacity: 1;color:rgb(255 255 255 / var(--tw-text-opacity))}.dark\:text-gray-400{--tw-text-opacity: 1;color:rgb(156 163 175 / var(--tw-text-opacity))}.dark\:text-gray-500{--tw-text-opacity: 1;color:rgb(107 114 128 / var(--tw-text-opacity))}}
-        </style>
-
-        <style>
-            body {
-                font-family: 'Nunito', sans-serif;
-            }
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/admin') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                        @endif
-                    @endauth
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCS - The Chartered Space</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="resources/css/style.css"> -->
+    <link rel="stylesheet" href="{{ asset('../resources/css/style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <section id="top-bar">
+        <div class="container">
+            <div class="d-flex justify-content-center py-2 gap-2">
+                <p class="m-0">3 in 1 Interview Preparation Workshop Now Available In Recorded Version</p>
+                <a href="#" class="visit-now">Visit Now <i class="fa-solid fa-angle-right"></i> </a>
+            </div>
+        </div>
+    </section>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid nav-padding" >
+                <div class="logo navbar-brand">
+                    <a href="/">The Chartered Space</a>
                 </div>
-            @endif
-
-            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                    <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto text-gray-700 sm:h-20">
-                        <g clip-path="url(#clip0)" fill="#EF3B2D">
-                            <path d="M248.032 44.676h-16.466v100.23h47.394v-14.748h-30.928V44.676zM337.091 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.431 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162-.001 2.863-.479 5.584-1.432 8.161zM463.954 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.432 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162 0 2.863-.479 5.584-1.432 8.161zM650.772 44.676h-15.606v100.23h15.606V44.676zM365.013 144.906h15.607V93.538h26.776V78.182h-42.383v66.724zM542.133 78.182l-19.616 51.096-19.616-51.096h-15.808l25.617 66.724h19.614l25.617-66.724h-15.808zM591.98 76.466c-19.112 0-34.239 15.706-34.239 35.079 0 21.416 14.641 35.079 36.239 35.079 12.088 0 19.806-4.622 29.234-14.688l-10.544-8.158c-.006.008-7.958 10.449-19.832 10.449-13.802 0-19.612-11.127-19.612-16.884h51.777c2.72-22.043-11.772-40.877-33.023-40.877zm-18.713 29.28c.12-1.284 1.917-16.884 18.589-16.884 16.671 0 18.697 15.598 18.813 16.884h-37.402zM184.068 43.892c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002-35.648-20.524a2.971 2.971 0 00-2.964 0l-35.647 20.522-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v38.979l-29.706 17.103V24.493a3 3 0 00-.103-.776c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002L40.098 1.396a2.971 2.971 0 00-2.964 0L1.487 21.919l-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v122.09c0 1.063.568 2.044 1.489 2.575l71.293 41.045c.156.089.324.143.49.202.078.028.15.074.23.095a2.98 2.98 0 001.524 0c.069-.018.132-.059.2-.083.176-.061.354-.119.519-.214l71.293-41.045a2.971 2.971 0 001.489-2.575v-38.979l34.158-19.666a2.971 2.971 0 001.489-2.575V44.666a3.075 3.075 0 00-.106-.774zM74.255 143.167l-29.648-16.779 31.136-17.926.001-.001 34.164-19.669 29.674 17.084-21.772 12.428-43.555 24.863zm68.329-76.259v33.841l-12.475-7.182-17.231-9.92V49.806l12.475 7.182 17.231 9.92zm2.97-39.335l29.693 17.095-29.693 17.095-29.693-17.095 29.693-17.095zM54.06 114.089l-12.475 7.182V46.733l17.231-9.92 12.475-7.182v74.537l-17.231 9.921zM38.614 7.398l29.693 17.095-29.693 17.095L8.921 24.493 38.614 7.398zM5.938 29.632l12.475 7.182 17.231 9.92v79.676l.001.005-.001.006c0 .114.032.221.045.333.017.146.021.294.059.434l.002.007c.032.117.094.222.14.334.051.124.088.255.156.371a.036.036 0 00.004.009c.061.105.149.191.222.288.081.105.149.22.244.314l.008.01c.084.083.19.142.284.215.106.083.202.178.32.247l.013.005.011.008 34.139 19.321v34.175L5.939 144.867V29.632h-.001zm136.646 115.235l-65.352 37.625V148.31l48.399-27.628 16.953-9.677v33.862zm35.646-61.22l-29.706 17.102V66.908l17.231-9.92 12.475-7.182v33.841z"/>
-                        </g>
-                    </svg>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Courses </a>
+                    <ul class="dropdown-menu" >
+                <!--        <button type="button" >-->
+                <!-- Click Here Login-->
+                <!--</button> -->
+                        <li><a class="dropdown-item" data-toggle="modal" data-target="#exampleModalCenter">Financial Modeling and Valuation</a></li>
+                        <li><a class="dropdown-item" href="#">Advance Excel</a></li>
+                        <li><a class="dropdown-item" href="#">Accounting and Taxation </a></li>
+                        <li><a class="dropdown-item" href=""> Advance Tally Erp 9</a></li>
+                        <li><a class="dropdown-item" href="">Basic Tally Erp 9</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Mentorship</a>
+                    <ul class="dropdown-menu" >
+                        <li><a class="dropdown-item"><span data-toggle="modal" data-target="#modalLoginForm">Mentorship for Professionals</span>  </a></li>
+                        <li><a class="dropdown-item"><span data-toggle="modal" data-target="#modalLoginForm">Mentorship for Students</span></a></li>
+                        <li><a class="dropdown-item" href="#">Apply as Mentor</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Placement</a>
+                    <ul class="dropdown-menu" >
+                        <li><a class="dropdown-item" href="#">Vacancies</a></li>
+                        <li><a class="dropdown-item" href="#">Apply for Placement</a></li>
+                        <li><a class="dropdown-item" href="#">Post a vacancy</a></li>
+                        <li><a class="dropdown-item" href="#">See Job Applicants</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Utilities </a>
+                    <ul class="dropdown-menu" >
+                        <li><a class="dropdown-item" href="#">Resume Builder</a></li>
+                        <li><a class="dropdown-item" href="#">To be discussed Later</a></li>
+                    </ul>
+                  </li>
+                  
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+                    <ul class="dropdown-menu" >
+                        <li><a class="dropdown-item" href="#">Books</a></li>
+                         <li><a class="dropdown-item" href="#">To be discussed Later</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">More </a>
+                    <ul class="dropdown-menu" >
+                        <li><a class="dropdown-item" href="#">Ask a Question</a></li>
+                        <li><a class="dropdown-item" href="#">Free Courses</a></li>
+                        <li><a class="dropdown-item" href="#">Events</a></li>
+                        <li><a class="dropdown-item" href="#">Blogs</a></li>
+                        <li><a class="dropdown-item" href="#">Refer & Earn</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="">
+                      <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                  </li>
+                </ul>
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                  <li class="nav-item d-flex align-items-center">
+                    <a class="nav-link loginbtn" href="#"><i class="fa fa-user" aria-hidden="true"></i> Login</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </nav>
+    </header>
+    
+    <section id="herosection">
+        <div class="container h-100 py-3 position-relative">
+            <div id="particles-js">
+                
+            </div>
+            <div class="row align-items-center h-100">
+                <div class="col-md-6">
+                    <h1>An Exclusive Place<br><span style="color: gold;">To Serve Your Professional Needs</span></h1>
+                    <p><span class="auto-input">Risk Management By CA Shivam Palan</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true">|</span></p>
+                    <div class="row gap-2 mt-2"> 
+                        <!--<a class="loginBtn login-btn" href="#">Sign Up</a>--> 
+                        <a href="#" class="loginBtn login-btn position-relative" id="iuqkr" style="margin: 0; width:49%">Courses</a> 
+                        <a class="heroBtn position-relative" href="#scroll" style="margin: 0; width:49%">Vacancies</a> 
+                    </div>
+                    <div class="row gap-2 mt-2"> 
+                        <!--<a class="loginBtn login-btn" href="#">Sign Up</a>--> 
+                        <a href="#" class="loginBtn login-btn position-relative" id="iuqkr" style="margin: 0; width:49%">Mentorship</a> 
+                        <a class="heroBtn position-relative" href="#scroll" style="margin: 0; width:49%">Resume Builder</i></a> 
+                    </div>
+                    <div class="row gap-2 mt-2"> 
+                        <!--<a class="loginBtn login-btn" href="#">Sign Up</a>--> 
+                        <a href="#" class="loginBtn login-btn position-relative" id="iuqkr" style="margin: 0; width:49%">Ask a Question</a> 
+                        <a class="heroBtn position-relative" href="#scroll" style="margin: 0; width:49%">Chat Group</a> 
+                    </div>
+     <!--               <div class="button-wrapper btn-container-center">-->
+					<!--	<a class="loginBtn login-btn position-relative"  id="iuqkr" style="margin: 0; width:49%"><i class="fa-solid fa-user"></i> Sign Up</a>-->
+					<!--	<a class="heroBtn position-relative" href="#scroll" style="margin: 0; width:49%">View Courses <i class="fa-solid fa-angle-down"></i></a>-->
+					<!--</div>-->
                 </div>
-
-                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    <div class="grid grid-cols-1 md:grid-cols-2">
-                        <div class="p-6">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-gray-500"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs" class="underline text-gray-900 dark:text-white">Documentation</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel has wonderful, thorough documentation covering every aspect of the framework. Whether you are new to the framework or have previous experience with Laravel, we recommend reading all of the documentation from beginning to end.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-gray-500"><path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" /></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laracasts.com" class="underline text-gray-900 dark:text-white">Laracasts</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-gray-500"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" /></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel-news.com/" class="underline text-gray-900 dark:text-white">Laravel News</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-gray-500"><path stroke-linecap="round" stroke-linejoin="round" d="M6.115 5.19l.319 1.913A6 6 0 008.11 10.36L9.75 12l-.387.775c-.217.433-.132.956.21 1.298l1.348 1.348c.21.21.329.497.329.795v1.089c0 .426.24.815.622 1.006l.153.076c.433.217.956.132 1.298-.21l.723-.723a8.7 8.7 0 002.288-4.042 1.087 1.087 0 00-.358-1.099l-1.33-1.108c-.251-.21-.582-.299-.905-.245l-1.17.195a1.125 1.125 0 01-.98-.314l-.295-.295a1.125 1.125 0 010-1.591l.13-.132a1.125 1.125 0 011.3-.21l.603.302a.809.809 0 001.086-1.086L14.25 7.5l1.256-.837a4.5 4.5 0 001.528-1.732l.146-.292M6.115 5.19A9 9 0 1017.18 4.64M6.115 5.19A8.965 8.965 0 0112 3c1.929 0 3.716.607 5.18 1.64" /></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline">Forge</a>, <a href="https://vapor.laravel.com" class="underline">Vapor</a>, <a href="https://nova.laravel.com" class="underline">Nova</a>, and <a href="https://envoyer.io" class="underline">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline">Telescope</a>, and more.
-                                </div>
-                            </div>
+                <div class="col-md-6 align-items-center col-md-6 d-flex justify-content-end">
+                    <img src="{{asset('../resources/img/ezgif.com-video-to-gif.gif')}}" class="w-75 position-relative"/>
+                </div>
+            </div>
+        </div>
+    </section>
+     
+    <section id="usb-bar">
+        <div class="container py-5">
+            <div class="box">
+                <div class="row justify-content-center">
+                    <div class="col-md-3">
+                        <div class="usb-tab">
+                            <img src="{{asset('../resources/img/nZIwxLt.png')}}" alt="Learners"/>
+                            <h3 class="counter" data-target="25000">40000+</h3>
+                            <p class="title">Learners</p>
                         </div>
                     </div>
-                </div>
-
-                <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm text-gray-500 sm:text-left">
-                        <div class="flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="-mt-px w-5 h-5 text-gray-400">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                            </svg>
-
-                            <a href="https://laravel.bigcartel.com" class="ml-1 underline">
-                                Shop
-                            </a>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="ml-4 -mt-px w-5 h-5 text-gray-400">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                            </svg>
-
-                            <a href="https://github.com/sponsors/taylorotwell" class="ml-1 underline">
-                                Sponsor
-                            </a>
+                    <div class="col-md-3">
+                        <div class="usb-tab">
+                            <img src="{{asset('../resources/img/RVw7uoZ.png')}}" alt="Mentorship"/>
+                            <h3 class="counter" data-target="25000" >1:1</h3>
+                            <p class="title">Mentorship</p>
                         </div>
                     </div>
-
-                    <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+                    <div class="col-md-3">
+                        <div class="usb-tab">
+                            <img src="{{asset('../resources/img/jPIuLay.png')}}" alt="Mentors"/>
+                            <h3 class="counter" data-target="25000" >400+</h3>
+                            <p class="title">Mentors</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="usb-tab">
+                            <img src="{{asset('../resources/img/oRkNoplaced.png')}}" alt="Candidates Placed"/>
+                            <h3 class="counter" data-target="25000" >400+</h3>
+                            <p class="title">Candidates Placed</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </body>
+    </section>
+
+    <section id="courses" style="background-color: rgba(226, 16, 50, 0.03);">
+        <div class="container py-5">
+            <h2 class="title text-center">Risk Management Courses</h2>
+            <p class="sub-title">By CA Shivam Palan</p>
+            <div class="row">
+                <div class="col-md">
+                    <div class="courses-box">
+                        <div class="courses-img red-box">
+                            <img src="{{asset('../resources/img/xL0Hj6W.png')}}" alt="Full Batch">
+                        </div>
+                        <div class="courses-name">
+                            <h6>Full Batch</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md">
+                    <div class="courses-box">
+                        <div class="courses-img blue-box">
+                            <img src="{{asset('../resources/img/8nRF9ZL.png')}}" alt="Concept Building">
+                        </div>
+                        <div class="courses-name">
+                            <h6>Concept Building</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md">
+                    <div class="courses-box">
+                        <div class="courses-img green-box">
+                            <img src="{{asset('../resources/img/quSOMet.png')}}" alt="Full Batch">
+                        </div>
+                        <div class="courses-name">
+                            <h6>Books</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md">
+                    <div class="courses-box ">
+                        <div class="courses-img yellow-box">
+                            <img src="{{asset('../resources/img/xFIJ7test.png')}}" alt="Test Series">
+                        </div>
+                        <div class="courses-name">
+                            <h6>Test Series</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md">
+                    <div class="courses-box ">
+                        <div class="courses-img purple-box">
+                            <img src="{{asset('../resources/img/0ffLouQ.png')}}" alt="Free Resources">
+                        </div>
+                        <div class="courses-name">
+                            <h6>Free Resources</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="#" class="allcourse" title="" spellcheck="false">View All Course <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="upskill-courses" style="background-color: rgb(235, 252, 252);">
+        <div class="container py-5">
+            <h2 class="title text-center">Shop</h2>
+            <p class="sub-title">Be A Lifelong Learner</p>
+            <div class="row">
+                <div class="col-md">
+                    <div class="courses-box">
+                        <div class="courses-img green-box">
+                            <img src="{{asset('../resources/img/7NvZ0ur.png')}}" alt="Excel">
+                        </div>
+                        <div class="courses-name">
+                            <h6>Excel</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md">
+                    <div class="courses-box">
+                        <div class="courses-img blue-box">
+                            <img src="{{asset('../resources/img/aypWgjA.png')}}" alt="Sap Fico">
+                        </div>
+                        <div class="courses-name">
+                            <h6>Sap Fico</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md">
+                    <div class="courses-box">
+                        <div class="courses-img red-box">
+                            <img src="{{asset('../resources/img/ySbV8icons8databaseadministrator80.png')}}" alt="SQL">
+                        </div>
+                        <div class="courses-name">
+                            <h6>SQL</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md">
+                    <div class="courses-box ">
+                        <div class="courses-img yellow-box">
+                            <img src="{{asset('../resources/img/MJmhkicons8python80.png')}}" alt="Python">
+                        </div>
+                        <div class="courses-name">
+                            <h6>Python</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md">
+                    <div class="courses-box ">
+                        <div class="courses-img purple-box">
+                            <img src="{{asset('../resources/img/Yc7gegoogle.png')}}" alt="Financial Modeling">
+                        </div>
+                        <div class="courses-name">
+                            <h6>Financial Modeling</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="#" class="allcourse" title="" spellcheck="false">View All Course <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="placement-preparation" style="background-color: rgba(2, 116, 190, 0.1);">
+        <div class="container py-5">
+            <h2 class="title text-center">Placement Preparation</h2>
+            <p class="sub-title">Let's go grab your dream job, Together</p>
+            <div class="row">
+                <div class="col-md">
+                    <div class="courses-box">
+                        <div class="courses-img red-box">
+                            <img src="{{asset('../resources/img/EupmoZk.png')}}" alt="Live Workshops">
+                        </div>
+                        <div class="courses-name">
+                            <h6>Live Workshops</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md">
+                    <div class="courses-box">
+                        <div class="courses-img green-box">
+                            <img src="{{asset('../resources/img/jKHQxoK.png')}}" alt="Company Guides">
+                        </div>
+                        <div class="courses-name">
+                            <h6>Company Guides</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md">
+                    <div class="courses-box">
+                        <div class="courses-img blue-box">
+                            <img src="{{asset('../resources/img/Gc8sOJm.png')}}" alt="Aptitude Tests">
+                        </div>
+                        <div class="courses-name">
+                            <h6>Aptitude Tests</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md">
+                    <div class="courses-box ">
+                        <div class="courses-img yellow-box">
+                            <img src="{{asset('../resources/img/MJmhkicons8python80.png')}}" alt="Python">
+                        </div>
+                        <div class="courses-name">
+                            <h6>Python</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md">
+                    <div class="courses-box ">
+                        <div class="courses-img purple-box">
+                            <img src="{{asset('../resources/img/Yc7gegoogle.png')}}" alt="Financial Modeling">
+                        </div>
+                        <div class="courses-name">
+                            <h6>Financial Modeling</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="#" class="allcourse" title="" spellcheck="false">View All Course <i class="fa-solid fa-angle-right"></i></a>
+            </div>
+        </div>
+    </section>
+    <!-- Mentorship start -->
+    <section id="mentorship" class="mentorship-one">
+        <div data-cat="1" class="is-section is-section-100 is-box"> 
+            <div class="is-boxes"> 
+             <div class="is-box-centered"> 
+              <div class="is-container container" style="max-width: 1400px;"> 
+               <div class="row clearfix">
+                
+                <div class="mentorship" spellcheck="false"> 
+                 <div class="mentorshipContent"> 
+                  <h2>Mentorship</h2> 
+                  <p>Have a one-on-one conversation with our, best-in-the-industry mentors.</p> 
+                  <div class="mentorshipRow"> 
+                   <div class="mentorshipCard" onclick=""> 
+                    <div class="courseImg professional"> 
+                     <img alt="" class="lazy entered loaded" data-src="https://i.imgur.com/bJ3Bfm4.png" data-ll-status="loaded" src="https://i.imgur.com/bJ3Bfm4.png"> 
+                    </div> 
+                    <h6>For Professionals</h6> 
+                   </div> 
+                   <div class="mentorshipCard" onclick=""> 
+                    <div class="courseImg student"> 
+                     <img alt="" class="lazy entered loaded" data-src="https://i.imgur.com/LquNHZP.png" data-ll-status="loaded" src="https://i.imgur.com/LquNHZP.png"> 
+                    </div> 
+                    <h6>For Students</h6> 
+                   </div> 
+                  </div> 
+                  <span><a href="#" class="heroBtn" spellcheck="false" title="">Learn More <i class="fa-solid fa-angle-right"></i></a></span> 
+                 </div> 
+                </div>
+               </div> 
+              </div> 
+             </div> 
+            </div> 
+           </div>
+    </section>
+    <!-- Free Courses -->
+    <section class="free-courses-one">
+        <div class="is-box-centered" > 
+            <div class="is-container container" style="max-width: 1400px;"> 
+            <div class="row clearfix">
+            <div class="free" spellcheck="false"> 
+            <div class="freeContent"> 
+                <h2>Free Courses</h2> 
+                <div class="freeRow"> 
+                <div class="freeCard" onclick=""> 
+                <div class="courseImg excel"> 
+                <img alt="" class="lazy entered loaded" data-src="https://i.imgur.com/7NvZ0ur.png" data-ll-status="loaded" src="https://i.imgur.com/7NvZ0ur.png"> 
+                </div> 
+                <h6>Excel For Beginners</h6> 
+                </div> 
+                <div class="freeCard" onclick=""> 
+                <div class="courseImg englishspeaking"> 
+                <img alt="" class="lazy entered loaded" data-src="https://i.imgur.com/tFglD4Y.png" data-ll-status="loaded" src="https://i.imgur.com/tFglD4Y.png"> 
+                </div> 
+                <h6>English Speaking</h6> 
+                </div> 
+                <div class="freeCard" onclick=""> 
+                <div class="courseImg rmfree"> 
+                <img alt="" class="lazy entered loaded" data-src="https://i.imgur.com/6tD0u6u.png" data-ll-status="loaded" src="https://i.imgur.com/6tD0u6u.png"> 
+                </div> 
+                <h6>RM Free Resources</h6> 
+                </div> 
+                <div class="freeCard" onclick=""> 
+                <div class="courseImg communication"> 
+                <img alt="" class="lazy entered loaded" data-src="https://i.imgur.com/tLTh24T.png" data-ll-status="loaded" src="https://i.imgur.com/tLTh24T.png"> 
+                </div> 
+                <h6>Communication</h6> 
+                </div> 
+                <div class="freeCard" onclick=""> 
+                <div class="courseImg bitcoin"> 
+                <img alt="" class="lazy entered loaded" data-src="https://i.imgur.com/aMBoVzs.png" data-ll-status="loaded" src="https://i.imgur.com/aMBoVzs.png"> 
+                </div> 
+                <h6>Basics Of Crypto</h6> 
+                </div> 
+                </div> 
+                <span><a href="#" class="heroBtn" spellcheck="false" title="">View All Free Course <i class="fa-solid fa-angle-right"></i></a></span> 
+            </div> 
+            </div>
+            </div> 
+            </div> 
+        </div>
+    </section>
+    <!-- testimonial -->
+    <section class="testimonial-one">
+        <div class="row g-0">
+            <div class="testimonial" spellcheck="false"> 
+             <div class="testimonialContent"> 
+              <h2>What Our Students <span style="color: #0274be">Have To Say</span></h2> 
+              <div class="videoTestimonial"> 
+               <div class="videoTestimonialCard"> 
+                <iframe frameborder="0" class="lazy entered loaded" data-src="https://www.youtube.com/embed/Oc0gkDyA83k" data-ll-status="loaded" src="https://www.youtube.com/embed/Oc0gkDyA83k"></iframe> 
+               </div> 
+               <div class="videoTestimonialCard"> 
+                <iframe frameborder="0" class="lazy entered loaded" data-src="https://www.youtube.com/embed/HtYPCSwNuYU" data-ll-status="loaded" src="https://www.youtube.com/embed/HtYPCSwNuYU"></iframe> 
+               </div> 
+               <div class="videoTestimonialCard"> 
+                <iframe frameborder="0" class="lazy entered loaded" data-src="https://www.youtube.com/embed/25yLWkBawC4" data-ll-status="loaded" src="https://www.youtube.com/embed/25yLWkBawC4"></iframe> 
+               </div> 
+              </div> 
+              <div class="testimonialRow"> 
+               <div class="testimonialCard one"> 
+                <div class="testimonial-details"> 
+                 <img alt="" class="lazy entered loaded" data-src="https://dz8fbjd9gwp2s.cloudfront.net/orgData/606b3abe0cf2821005a32675/pages/assets/images/33nGlyakshabora.jpg" data-ll-status="loaded" src="https://dz8fbjd9gwp2s.cloudfront.net/orgData/606b3abe0cf2821005a32675/pages/assets/images/33nGlyakshabora.jpg"> 
+                 <div class="testimonialName"> 
+                  <h4>Yaksha Bora</h4> 
+                  <h6>PWC</h6> 
+                 </div> 
+                </div> 
+                <div class="testimonialText"> 
+                 <p>It made me aware of what things I need to do to land a dream job, it forced me to come out of my comfort zone and think beyond, it also helped me to gain confidence</p> 
+                </div> 
+               </div> 
+               <div class="testimonialCard two"> 
+                <div class="testimonial-details"> 
+                 <img alt="" class="lazy entered loaded" data-src="https://dz8fbjd9gwp2s.cloudfront.net/orgData/606b3abe0cf2821005a32675/pages/assets/images/ubFEyvrutantgabrani.jpg" data-ll-status="loaded" src="https://dz8fbjd9gwp2s.cloudfront.net/orgData/606b3abe0cf2821005a32675/pages/assets/images/ubFEyvrutantgabrani.jpg"> 
+                 <div class="testimonialName"> 
+                  <h4>Vrutant Gabrani</h4> 
+                  <h6>Bharat Petroleum Corporation Limited</h6> 
+                 </div> 
+                </div> 
+                <div class="testimonialText"> 
+                 <p>This is the perfect one-stop solution for Getting Ready for Placements. Hats off to Shivam Sir and Umang Sir for creating such great content and giving it to students. Such great resources, useful technical and aptitude test, the Campus List, the Mentors, the Networking, truly the most worthy session I have ever attended. Thanks, CA Monk</p> 
+                </div> 
+               </div> 
+               <div class="testimonialCard three"> 
+                <div class="testimonial-details"> 
+                 <img alt="" class="lazy" data-src="https://dz8fbjd9gwp2s.cloudfront.net/orgData/606b3abe0cf2821005a32675/pages/assets/images/Ay8xQkritiagarwal.jpg"  data-ll-status="loaded" src="https://dz8fbjd9gwp2s.cloudfront.net/orgData/606b3abe0cf2821005a32675/pages/assets/images/Ay8xQkritiagarwal.jpg"> 
+                 <div class="testimonialName"> 
+                  <h4>Kriti Agarwal</h4> 
+                  <h6>NTT DATA Services</h6> 
+                 </div> 
+                </div> 
+                <div class="testimonialText"> 
+                 <p>Helped me work on my profiles, get a better reach, scale-up my Resume, and most importantly - helped me a lot in driving away from my fear of public speaking by good GD sessions and mocks</p> 
+                </div> 
+               </div> 
+               <div class="testimonialCard four"> 
+                <div class="testimonial-details"> 
+                 <img alt="" class="lazy" data-src="https://dz8fbjd9gwp2s.cloudfront.net/orgData/606b3abe0cf2821005a32675/pages/assets/images/b4Gfadhruviksheth.jpg" data-ll-status="loaded" src="https://dz8fbjd9gwp2s.cloudfront.net/orgData/606b3abe0cf2821005a32675/pages/assets/images/b4Gfadhruviksheth.jpg"> 
+                 <div class="testimonialName"> 
+                  <h4>Dhruvik Sheth</h4> 
+                  <h6>EY</h6> 
+                 </div> 
+                </div> 
+                <div class="testimonialText"> 
+                 <p>It has helped me to identify areas which are important in the selection process and work on it without having to find the best way of doing it - it all has been provided to me by the workshop. Also, peer interviews and mock GDs are a great way of preparing ourselves and making the first mistakes in a closed environment rather than exposing ourselves during our placements.</p> 
+                </div> 
+               </div> 
+              </div> 
+              <center>
+               <span><a href="#" class="heroBtn" spellcheck="false" title="">View More <i class="fa-solid fa-angle-right"></i></a></span>
+              </center> 
+             </div> 
+            </div>
+           </div>
+    </section>
+    <!-- Team -->
+     <section class="team-one">
+        <div class="is-box-centered"> 
+            <div class="is-container container" style="max-width: 1400px;"> 
+             <div class="row clearfix">  
+              <div class="meetYourMentor" spellcheck="false"> 
+               <h2>Meet Your <span>Mentors</span></h2> 
+              </div> 
+              <div class="mentorSlider" spellcheck="false"> 
+               <div class="slide-track"> 
+                <div class="mentorSlide"> 
+                 <img alt="" class="lazy entered loaded" data-src="https://mentorship.camonk.com/wp-content/uploads/2022/05/Rashi-Jain-Bharatiya.webp" data-ll-status="loaded" src="https://mentorship.camonk.com/wp-content/uploads/2022/05/Rashi-Jain-Bharatiya.webp"> 
+                 <h5>Rashi Jain Bharatiya</h5> 
+                 <p>Kumar Chopra Associates</p> 
+                </div> 
+                <div class="mentorSlide"> 
+                 <img alt="" class="lazy entered loaded" data-src="https://mentorship.camonk.com/wp-content/uploads/2022/12/Aditya-Agarwal.png" data-ll-status="loaded" src="https://mentorship.camonk.com/wp-content/uploads/2022/12/Aditya-Agarwal.png"> 
+                 <h5>Aditya Agarwal</h5> 
+                 <p>Alvarez &amp; Marsal</p> 
+                </div> 
+                <div class="mentorSlide"> 
+                 <img alt="" class="lazy entered loaded" data-src="https://mentorship.camonk.com/wp-content/uploads/2022/05/Aashi-Mahipal.webp" data-ll-status="loaded" src="https://mentorship.camonk.com/wp-content/uploads/2022/05/Aashi-Mahipal.webp"> 
+                 <h5>Aashi Mahipal</h5> 
+                 <p>American Express</p> 
+                </div> 
+                <div class="mentorSlide"> 
+                 <img alt="" class="lazy entered loaded" data-src="https://mentorship.camonk.com/wp-content/uploads/2022/05/Sanjana-Arora.png" data-ll-status="loaded" src="https://mentorship.camonk.com/wp-content/uploads/2022/05/Sanjana-Arora.png"> 
+                 <h5>Sanjana Arora</h5> 
+                 <p>Flipkart</p> 
+                </div> 
+                <div class="mentorSlide"> 
+                 <img alt="" class="lazy entered loaded" data-src="https://mentorship.camonk.com/wp-content/uploads/2022/05/Amul-Agarwal.webp" data-ll-status="loaded" src="https://mentorship.camonk.com/wp-content/uploads/2022/05/Amul-Agarwal.webp"> 
+                 <h5>Amul Agrawal</h5> 
+                 <p>BAJAJ FINANCE</p> 
+                </div> 
+                <div class="mentorSlide"> 
+                 <img alt="" class="lazy entered loaded" data-src="https://mentorship.camonk.com/wp-content/uploads/2022/05/Anand-Maheshwari.webp" data-ll-status="loaded" src="https://mentorship.camonk.com/wp-content/uploads/2022/05/Anand-Maheshwari.webp"> 
+                 <h5>Anand Maheshwari</h5> 
+                 <p>EY</p> 
+                </div> 
+                <div class="mentorSlide"> 
+                 <img alt="" class="lazy entered loaded" data-src="https://mentorship.camonk.com/wp-content/uploads/2022/05/Yugantar-Gupta.webp" data-ll-status="loaded" src="https://mentorship.camonk.com/wp-content/uploads/2022/05/Yugantar-Gupta.webp"> 
+                 <h5>Yugantar Gupta</h5> 
+                 <p>ITC</p> 
+                </div> 
+                <div class="mentorSlide"> 
+                 <img alt="" class="lazy entered loaded" data-src="https://mentorship.camonk.com/wp-content/uploads/2022/05/Siddhant-Jain.webp" data-ll-status="loaded" src="https://mentorship.camonk.com/wp-content/uploads/2022/05/Siddhant-Jain.webp"> 
+                 <h5>Siddhant Jain</h5> 
+                 <p>AARAYAA ADVISORY SERVICES</p> 
+                </div> 
+                <div class="mentorSlide"> 
+                 <img alt="" class="lazy entered loaded" data-src="https://mentorship.camonk.com/wp-content/uploads/2022/05/Remaining-Mentors.webp" data-ll-status="loaded" src="https://mentorship.camonk.com/wp-content/uploads/2022/05/Remaining-Mentors.webp"> 
+                 <h5>Rohit Daiya</h5> 
+                 <p>BANK OF AMERICA</p> 
+                </div> 
+                <div class="mentorSlide"> 
+                 <img alt="" class="lazy entered loaded" data-src="https://mentorship.camonk.com/wp-content/uploads/2022/07/Harshbir-Oberoi.png" data-ll-status="loaded" src="https://mentorship.camonk.com/wp-content/uploads/2022/07/Harshbir-Oberoi.png"> 
+                 <h5>Harshbir Oberoi</h5> 
+                 <p>KPMG India Services Limited</p> 
+                </div> 
+                <div class="mentorSlide"> 
+                 <img alt="" class="lazy entered loaded" data-src="https://mentorship.camonk.com/wp-content/uploads/2022/07/Jainam-Shah.webp" data-ll-status="loaded" src="https://mentorship.camonk.com/wp-content/uploads/2022/07/Jainam-Shah.webp"> 
+                 <h5>Jainam Shah</h5> 
+                 <p>INFOSYS</p> 
+                </div> 
+                <div class="mentorSlide"> 
+                 <img alt="" class="lazy entered loaded" data-src="https://mentorship.camonk.com/wp-content/uploads/2022/12/Sandeep-Akde.png" data-ll-status="loaded" src="https://mentorship.camonk.com/wp-content/uploads/2022/12/Sandeep-Akde.png"> 
+                 <h5>Sandeep Akde</h5> 
+                 <p>PWC</p> 
+                </div> 
+                <div class="mentorSlide"> 
+                 <img alt="" class="lazy entered loaded" data-src="https://mentorship.camonk.com/wp-content/uploads/2022/05/Shivam-Jaiswal.png" data-ll-status="loaded" src="https://mentorship.camonk.com/wp-content/uploads/2022/05/Shivam-Jaiswal.png"> 
+                 <h5>Shivam Jaiswal</h5> 
+                 <p>Grant Thornton</p> 
+                </div> 
+                <div class="mentorSlide"> 
+                 <img alt="" class="lazy entered loaded" data-src="https://mentorship.camonk.com/wp-content/uploads/2022/12/Aman-2-Dec-New.webp" data-ll-status="loaded" src="https://mentorship.camonk.com/wp-content/uploads/2022/12/Aman-2-Dec-New.webp"> 
+                 <h5>Ratan Palanki</h5> 
+                 <p>Rx Propellant</p> 
+                </div> 
+                <div class="mentorSlide"> 
+                 <img alt="" class="lazy entered loaded" data-src="https://mentorship.camonk.com/wp-content/uploads/2022/05/Shahid-Khan.webp" data-ll-status="loaded" src="https://mentorship.camonk.com/wp-content/uploads/2022/05/Shahid-Khan.webp"> 
+                 <h5>Shahid Khan</h5> 
+                 <p>EY GDS</p> 
+                </div> 
+                <div class="mentorSlide"> 
+                 <img alt="" class="lazy entered loaded" data-src="https://mentorship.camonk.com/wp-content/uploads/2022/08/Kumar-Saumya.webp" data-ll-status="loaded" src="https://mentorship.camonk.com/wp-content/uploads/2022/08/Kumar-Saumya.webp"> 
+                 <h5>Kumar Saumya</h5> 
+                 <p>EY GDS</p> 
+                </div> 
+                <div class="mentorSlide"> 
+                 <img alt="" class="lazy entered loaded" data-src="https://mentorship.camonk.com/wp-content/uploads/2022/05/Sandeep-Bvs.webp" data-ll-status="loaded" src="https://mentorship.camonk.com/wp-content/uploads/2022/05/Sandeep-Bvs.webp"> 
+                 <h5>Sandeep Bvs</h5> 
+                 <p>DELOITTE INDIA</p> 
+                </div> 
+                <div class="mentorSlide"> 
+                 <img alt="" class="lazy entered loaded" data-src="https://mentorship.camonk.com/wp-content/uploads/2022/05/Tejas-Sonar.webp" data-ll-status="loaded" src="https://mentorship.camonk.com/wp-content/uploads/2022/05/Tejas-Sonar.webp"> 
+                 <h5>Tejas Sonar</h5> 
+                 <p>ICICI BANK</p> 
+                </div> 
+                <div class="mentorSlide"> 
+                 <img alt="" class="lazy" data-src="https://mentorship.camonk.com/wp-content/uploads/2022/05/Mehul-Balia.webp"> 
+                 <h5>Mehul Baliya</h5> 
+                 <p>ACCENTURE</p> 
+                </div> 
+                <div class="mentorSlide"> 
+                 <img alt="" class="lazy" data-src="https://mentorship.camonk.com/wp-content/uploads/2022/05/Padm-Prag-Pratyush.webp"> 
+                 <h5>Padm Prag Pratyush</h5> 
+                 <p>Arcesium India Private Limited</p> 
+                </div> 
+               </div> 
+              </div>
+             </div> 
+            </div> 
+           </div>
+    </section> 
+
+    <!-- Career Goal -->
+    <section class="careergoal-one">
+        <div class="is-box-centered"> 
+            <div class="is-container container" style="max-width: 1400px;"> 
+             <div class="row clearfix">
+              <div class="support" spellcheck="false"> 
+               <div class="supportContent"> 
+                <h2>Crush Your <span style="color: gold;">Career Goals</span></h2> 
+                <p>Unsure how? We can help</p> 
+                <div class="supportRow"> 
+                 <a href="tel:" class="heroBtn" style="margin: 0;"><i class="fa-solid fa-phone"></i> +919078768782</a> 
+                 <a href="tel:" class="heroBtn1" style="margin: 0;"><i class="fa-solid fa-phone"></i> <b>+918776690907</b></a> 
+                 <a href="mailto:support@example.com" class="login-btn" style="margin: 0;">support@example.com <i class="fa-solid fa-envelope"></i></a> 
+                </div> 
+                <p class="p-1"><strong>Support Timing:</strong> Monday - Saturday, 10 AM - 7 PM</p> 
+               </div> 
+              </div>
+             </div> 
+            </div> 
+           </div>
+    </section>
+    
+        <!--code for login and registration model
+   
+     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Login</h5>
+                <button type="button" class="close bdr-0" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body p-3">
+                    <h3 class="text-center font-weight-bold text-primary">GIT <i><span class="text-danger">SYNERGY</span></i> 2K20 LOGIN</h3>
+                    <form>
+                        <div class="text-center">
+                            <span class="text-warning"><i class="fa fa-users fa-5x"></i></span>
+                        </div>
+                        <div class="form-group">
+                        <label style="color:black">Username</label>
+                        <input type="text" class="form-control" Placeholder="Enter Username">
+                            </div>
+                        <div class="form-group">
+                            <label style="color:black">Password</label>
+                            <input type="password" class="form-control" Placeholder="Enter Password">>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn rounded-pill btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Registration</button> 
+                    </form>
+                </div>
+            </div>
+        </div>  
+    </div> -->
+    
+    <footer id="footer">
+        <div class="container pt-5">
+            <div class="text-center">
+                <img src="img/BCX9a3X.png" alt="">
+                <p class="sub-title">CA Monk is a one-stop partner in your journey to becoming a CA and beyond.</p>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <ul> 
+                        <h6>Risk Management</h6> 
+                        <li><a href="#">Full Batch</a></li> 
+                        <li><a href="#">Concept Building</a></li> 
+                        <li><a href="#">Books</a></li> 
+                        <li><a href="#">Test Series</a></li> 
+                        <li><a href="#">Atmanirbhar Batch</a></li> 
+                        <li><a href="#">Free Resources</a></li> 
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul> 
+                        <h6>Risk Management</h6> 
+                        <li><a href="#">Full Batch</a></li> 
+                        <li><a href="#">Concept Building</a></li> 
+                        <li><a href="#">Books</a></li> 
+                        <li><a href="#">Test Series</a></li> 
+                        <li><a href="#">Atmanirbhar Batch</a></li> 
+                        <li><a href="#">Free Resources</a></li> 
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul> 
+                        <h6>Risk Management</h6> 
+                        <li><a href="#">Full Batch</a></li> 
+                        <li><a href="#">Concept Building</a></li> 
+                        <li><a href="#">Books</a></li> 
+                        <li><a href="#">Test Series</a></li> 
+                        <li><a href="#">Atmanirbhar Batch</a></li> 
+                        <li><a href="#">Free Resources</a></li> 
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul> 
+                        <h6>Risk Management</h6> 
+                        <li><a href="#">Full Batch</a></li> 
+                        <li><a href="#">Concept Building</a></li> 
+                        <li><a href="#">Books</a></li> 
+                        <li><a href="#">Test Series</a></li> 
+                        <li><a href="#">Atmanirbhar Batch</a></li> 
+                        <li><a href="#">Free Resources</a></li> 
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright text-center mt-4">
+                <p class="border-top" style="color: #fff; margin: 0;padding: 20px 0px 15px; font-weight: 400; font-size: var(--p);">Copyright © CA MONK. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!--code for login popup-->
+    
+    <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <h4 class="modal-title w-100 font-weight-bold">Login</h4>
+            <button type="button" class="close bdr-0" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body mx-3">
+            <div id="login-form-wrap">
+              <form id="login-form">
+                 <div class="form-group">
+                    <input type="text" id="fullname" name="Fullname" placeholder="FullName" required=""><i class="validation"></i>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="Email" placeholder="Email Address" required=""><i class="validation"></i>
+                </div>
+                 <input type="submit" id="login" value="Login">
+              </form>
+              <div id="create-account-wrap">
+                <p>Not a member? <a href="#" data-toggle="modal" data-target="#modalSignupForm">Create Account</a></p>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- code for registraion -->
+    <!--<div class="modal fade" id="modalSignupForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <h4 class="modal-title w-100 font-weight-bold">Login</h4>
+            <button type="button" class="close bdr-0" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body mx-3">
+            <div id="login-form-wrap">
+              <form id="login-form">
+                <div class="form-group">
+                    <input type="text" id="fullname" name="Fullname" placeholder="FullName" required=""><i class="validation"></i>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="Email" placeholder="Email Address" required=""><i class="validation"></i>
+                </div>
+                <div class="form-group">
+                    <input type="number" id="MobileNo" name="Mobileno" placeholder="Mobile Number" required=""><i class="validation"></i>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="password" name="password" placeholder="Password" required=""><i class="validation"></i>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="cpassword" name="cpassword" placeholder="Confirm Password" required=""><i class="validation"></i>
+                </div>
+                    <input type="submit" id="register" value="Submit">
+              </form>
+              
+          </div>
+        </div>
+      </div>
+    </div> -->
+    
+<style>
+.form-group{
+    margin:20px 0;
+}
+ #login-form-wrap {
+    background-color: #fff;
+    text-align: center;
+    padding: 20px 0 0;
+    border-radius: 4px;
+    box-shadow: 0 30px 50px 0 rgba(0,0,0,.2);
+}
+#login-form {
+    padding: 0 60px 20px 60px;
+}
+#login-form p {
+    position: relative;
+}
+input[type=text], input[type=email], input[type=number] {
+    width: 100%;
+    padding: 0 0 0 10px;
+    margin: 0;
+    color: #8a8b8e;
+    border: 1px solid #c2c0ca;
+    font-style: normal;
+    font-size: 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative;
+    display: inline-block;
+    background: 0 0;
+}
+input {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    outline: none;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 4px;
+}
+.validation {
+    display: none;
+    position: absolute;
+    content: " ";
+    height: 60px;
+    width: 30px;
+    right: 15px;
+    top: 0;
+}
+#create-account-wrap {
+    background-color: #eeedf1;
+    color: #8a8b8e;
+    font-size: 14px;
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 0 0 4px 4px;
+}
+a, a:link, a:visited, a:active {
+    color: #3ca9e2;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+}
+input[type=submit] {
+    border: none;
+    display: block;
+    background-color: #3ca9e2;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+    font-size: 18px;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+}
+.navbar-brand a{
+    color:#000000;
+}
+</style>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
+    <script>
+    /* ---- particles.js config ---- */
+
+    // particlesJS("particles-js", {
+    //   "particles": {
+    //     "number": {
+    //       "value": 380,
+    //       "density": {
+    //         "enable": true,
+    //         "value_area": 800
+    //       }
+    //     },
+    //     "color": {
+    //       "value": "#ffffff"
+    //     },
+    //     "shape": {
+    //       "type": "circle",
+    //       "stroke": {
+    //         "width": 0,
+    //         "color": "#000000"
+    //       },
+    //       "polygon": {
+    //         "nb_sides": 5
+    //       },
+    //       "image": {
+    //         "src": "img/github.svg",
+    //         "width": 100,
+    //         "height": 100
+    //       }
+    //     },
+    //     "opacity": {
+    //       "value": 0.5,
+    //       "random": false,
+    //       "anim": {
+    //         "enable": false,
+    //         "speed": 1,
+    //         "opacity_min": 0.1,
+    //         "sync": false
+    //       }
+    //     },
+    //     "size": {
+    //       "value": 3,
+    //       "random": true,
+    //       "anim": {
+    //         "enable": false,
+    //         "speed": 40,
+    //         "size_min": 0.1,
+    //         "sync": false
+    //       }
+    //     },
+    //     "line_linked": {
+    //       "enable": true,
+    //       "distance": 150,
+    //       "color": "#ffffff",
+    //       "opacity": 0.4,
+    //       "width": 1
+    //     },
+    //     "move": {
+    //       "enable": true,
+    //       "speed": 6,
+    //       "direction": "none",
+    //       "random": false,
+    //       "straight": false,
+    //       "out_mode": "out",
+    //       "bounce": false,
+    //       "attract": {
+    //         "enable": false,
+    //         "rotateX": 600,
+    //         "rotateY": 1200
+    //       }
+    //     }
+    //   },
+    //   "interactivity": {
+    //     "detect_on": "canvas",
+    //     "events": {
+    //       "onhover": {
+    //         "enable": true,
+    //         "mode": "grab"
+    //       },
+    //       "onclick": {
+    //         "enable": true,
+    //         "mode": "push"
+    //       },
+    //       "resize": true
+    //     },
+    //     "modes": {
+    //       "grab": {
+    //         "distance": 140,
+    //         "line_linked": {
+    //           "opacity": 1
+    //         }
+    //       },
+    //       "bubble": {
+    //         "distance": 400,
+    //         "size": 40,
+    //         "duration": 2,
+    //         "opacity": 8,
+    //         "speed": 3
+    //       },
+    //       "repulse": {
+    //         "distance": 200,
+    //         "duration": 0.4
+    //       },
+    //       "push": {
+    //         "particles_nb": 4
+    //       },
+    //       "remove": {
+    //         "particles_nb": 2
+    //       }
+    //     }
+    //   },
+    //   "retina_detect": true
+    // });
+
+
+/* ---- stats.js config ---- */
+
+    var count_particles, stats, update;
+    stats = new Stats;
+    stats.setMode(0);
+    stats.domElement.style.position = 'absolute';
+    stats.domElement.style.left = '0px';
+    stats.domElement.style.top = '0px';
+    document.body.appendChild(stats.domElement);
+    count_particles = document.querySelector('.js-count-particles');
+    update = function() {
+    stats.begin();
+    stats.end();
+    if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+        count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+    }
+    requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+</script>
+</body>
 </html>

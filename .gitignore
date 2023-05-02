@@ -16,3 +16,12 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+order-management
+laleshwar
+
+.htaccess
+.styleci.yml
+.well-known/
+backup.zip
+backup
+*.zip
