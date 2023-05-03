@@ -22,7 +22,7 @@ class ConversationController extends Controller
     public function show(Request $request,$id){
         $conversation = Conversation::where("group_id",$id)->get();
         $conversation->load('user');
-        return $conversation;
+        return ["data"=>$conversation,"user_id"=>auth()->user()->id];
     }
 
     public function store()

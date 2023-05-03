@@ -29,6 +29,38 @@
         .accordion-item{
             color: black !important;
         }
+    .chat-body.clearfix {
+    width: fit-content;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 3px 10px;
+    border-radius: 0px 8px 8px 8px;
+    position: relative;
+    margin-bottom: 15px;
+    max-width: 80%;
+}
+
+span.recived-message {
+    position: absolute;
+    left: -7px;
+    top: -7px;
+    color: #fff;
+}
+.chat-body.clearfix.send-message {
+    margin-left: auto;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 0;
+}
+
+span.send-message {
+    position: absolute;
+    right: -7px;
+    top: -7px;
+    color: #fff;
+}
+small {
+    font-size: 10px;
+    margin-left: auto;
+}
         </style>
 </head>
 <body class="">

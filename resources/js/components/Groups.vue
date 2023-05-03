@@ -1,7 +1,13 @@
 <template>
-    <div>
-        <group-chat v-for="group in groups" :group="group" :key="group.id"></group-chat>
-        
+    <div class="card">
+        <div class="card-header bg-gradient-success">
+            <h5 class="text-white">Groups</h5>
+        </div>
+        <div class="card-body accordion-1">
+            <div class="accordion">
+                <group-chat v-for="group in groups" :group="group" :key="group.id"></group-chat>
+            </div>
+        </div>
     </div>
 </template>
 
