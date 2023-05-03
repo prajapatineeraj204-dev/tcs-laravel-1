@@ -62,7 +62,7 @@
                     <ul class="dropdown-menu" >
                         <li><a class="dropdown-item" href="#">Vacancies</a></li>
                         <li><a class="dropdown-item" href="#">Apply for Placement</a></li>
-                        <li><a class="dropdown-item" href="#">Post a vacancy</a></li>
+                        <li><a class="dropdown-item" href="{{route('vacancie.create')}}">Post a vacancy</a></li>
                         <li><a class="dropdown-item" href="#">See Job Applicants</a></li>
                     </ul>
                   </li>

@@ -62,7 +62,7 @@
                     <ul class="dropdown-menu" >
                         <li><a class="dropdown-item" href="#">Vacancies</a></li>
                         <li><a class="dropdown-item" href="#">Apply for Placement</a></li>
-                        <li><a class="dropdown-item" href="#">Post a vacancy</a></li>
+                        <li><a class="dropdown-item" href="{{route('vacancie.create')}}">Post a vacancy</a></li>
                         <li><a class="dropdown-item" href="#">See Job Applicants</a></li>
                     </ul>
                   </li>
@@ -114,7 +114,7 @@
     <section style="background:#fff">
         <div class="container-fluid">
           <div class="job-header text-center job-card">
-            <h2 class="job-title">Job Application Form </h2>
+            <h2 class="job-title"> Post a Vacancy </h2>
           </div>
         </div>
         <div class="container-fluid" style="background:#f4f5f9">
@@ -137,8 +137,12 @@
               <h3>Basic Job Details</h3>
               <div class="basic-details card-box">
                 <div class="form-group mb-3">
-                  <label for="txtJobTitle">Job Title</label>
+                  <label for="txtJobTitle">Position </label>
                   <input required type="text" name="jobtitle" value="" class="form-control" id="textJobTitle" placeholder="Eg. Back Office Job">
+                </div>
+                <div class="form-group mb-3">
+                  <label for="txtJobTitle">Eligibility </label>
+                  <input required type="text" name="eligibility" value="" class="form-control" id="eligibility" placeholder="Eg. MBA, CA , CS, B.Com, M.com, etc">
                 </div>
                 <div class="form-group mb-3">
                   <label for="txtJobOpening">No Of Openings *</label>
@@ -159,7 +163,7 @@
               <div class="mt-4">
                 <h3>Candidate requirement</h3>
                 <div class="basic-details card-box">
-                <label for="SalaryInhand">Monthly In-hand Salary *</label>
+                <label for="SalaryInhand">CTC *</label>
                   <div class="d-flex form-group mb-3">
                     <div style="width:48%">
                       <input required type="number" name="salary_from" value="" class="form-control" placeholder="Eg. 10000">

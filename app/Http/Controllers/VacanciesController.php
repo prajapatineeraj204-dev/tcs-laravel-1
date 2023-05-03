@@ -45,6 +45,7 @@ class VacanciesController extends Controller
             $vacancies = new Vacancies;
             $vacancies->user_id = $data->id;
             $vacancies->job_title = $request->jobtitle;
+            $vacancies->eligibility = $request->eligibility;
             $vacancies->job_opening = $request->jobopening;
             $vacancies->city = $request->city;
             $vacancies->salary = $request->salary_from.'-'.$request->salary_to;

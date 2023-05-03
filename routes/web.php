@@ -27,6 +27,7 @@ Route::group(['prefix' => 'super-admin'], function ()   {
 
 Route::resource('groups', GroupController::class);
 Route::resource('conversations', ConversationController::class);
+Route::resource('/vacancie', App\Http\Controllers\VacanciesController::class)->name('vacancie',"*");
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/chat', [App\Http\Controllers\HomeController::class, 'chat']);
