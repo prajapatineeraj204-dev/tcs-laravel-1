@@ -11,7 +11,6 @@
       <div class="container job-card">
         @if(!empty($vacancies))
             @foreach ($vacancies as $vacancie)
-            {{$vacancies}}
             <div class="basic-details card-box mb-2">
                 <div class="row">
                     <div class="col-md-9">
