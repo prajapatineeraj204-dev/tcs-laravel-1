@@ -14,7 +14,8 @@ class VacanciesController extends Controller
 {
     
     public function index(Request $Request){
-        return "vacancies";
+        $vacancies=Vacancies::orderBy("id","desc")->get();
+        return view("vacancies.index",compact("vacancies"));
     }
     
     public function create(Request $Request){
@@ -24,7 +25,7 @@ class VacanciesController extends Controller
     public function store(Request $request){
         if(!Auth::check()) {
             $password = substr(md5(uniqid(mt_rand(), true)), 0, 8);
-            if(Auth::attempt(["email"=>$request->email,$request->phone_number])){
+            if(Auth::attempt(["email"=>$request->email,"phone"=>$request->phone_number])){
                 
             }else{
                 if(User::where("email",$request->email)->count()){
@@ -63,5 +64,10 @@ class VacanciesController extends Controller
         // }else{
             
         // }
+    }
+
+    public function show(Request $Request,$id){
+        $vacancie=Vacancies::findOrFail($id);
+        return view("vacancies.show",compact("vacancie"));
     }
 }
