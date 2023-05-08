@@ -69,7 +69,6 @@
         },
 
         mounted() {
-            console.log("Hiii message")
             this.listenForNewMessage();
         },
 
@@ -94,11 +93,10 @@
             },
 
             listenForNewMessage() {
-                console.log("new message")
                 Echo.private('groups.' + this.group.id)
                     .listen('NewMessage', (e) => {
                         // console.log(e);
-                        console.log("new message")
+                        console.log("new message",e)
                         this.conversations.push(e);
                     });
             }
