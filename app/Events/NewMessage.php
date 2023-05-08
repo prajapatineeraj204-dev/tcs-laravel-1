@@ -13,15 +13,15 @@ use Illuminate\Queue\SerializesModels;
 class NewMessage implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-
+    public $conversation;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($conversation)
     {
-        //
+        $this->conversation = $conversation;
     }
 
     /**
