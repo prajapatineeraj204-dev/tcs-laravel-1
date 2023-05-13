@@ -44,7 +44,7 @@ class VacanciesController extends Controller
         }
         // if(){
             $vacancies = new Vacancies;
-            $vacancies->user_id = $data->id;
+            $vacancies->user_id = auth()->user()->id;
             $vacancies->job_title = $request->jobtitle;
             $vacancies->eligibility = $request->eligibility;
             $vacancies->job_opening = $request->jobopening;

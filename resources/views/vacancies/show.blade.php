@@ -29,23 +29,50 @@
         </div>
         <h3>Apply For The Job</h3>
         <div class="basic-details card-box">
-            <form>
+            <form action="{{url('/vacancie-apply')}}" method="post" enctype="multipart/form-data">
+                @csrf
                 <div class="row g-3">
+                    @if ($message = Session::get('success'))
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{ $message }}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          @endif 
+              
+          @if ($message = Session::get('error'))
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>{{ $message }}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          @endif
+            <input type="hidden" name="vacancie_id" value="{{$vacancie->id}}">
                     <div class="col-12 col-sm-6">
-                        <input type="text" name="name" class="form-control" placeholder="Your Name">
+                        <input type="text" name="name" class="form-control" placeholder="Your Name" required>
                     </div>
                     <div class="col-12 col-sm-6">
-                        <input type="email" name="email" class="form-control" placeholder="Your Email">
+                        <input type="email" name="email" class="form-control" placeholder="Your Email"  required>
                     </div>
                     <div class="col-12 col-sm-6">
-                        <input type="text" name="phone" class="form-control" placeholder="Your Mobile">
+                        <input type="text" name="phone" class="form-control" placeholder="Your Mobile"  required>
                     </div>
                     <div class="col-12 col-sm-6">
-                        <input type="file" class="form-control bg-white">
+                        <input type="text" name="qualification" class="form-control" placeholder="Highest Qualification"  required>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 col-sm-6">
+                        <input type="text" name="experience" class="form-control" placeholder="Experience (In Year)"  required>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <input type="text" name="current_ctc" class="form-control" placeholder="Current CTC" required>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <input type="text" name="expected_ctc" class="form-control" placeholder="Expected CTC" required>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <input name="resume" type="file" class="form-control bg-white"  required accept=".doc, .docx ,.pdf">
+                    </div>
+                    {{-- <div class="col-12">
                         <textarea class="form-control" name="message" rows="5" placeholder="Coverletter"></textarea>
-                    </div>
+                    </div> --}}
                     <div class="col-12">
                         <button class="btn btn-primary w-100" type="submit">Apply Now</button>
                     </div>
