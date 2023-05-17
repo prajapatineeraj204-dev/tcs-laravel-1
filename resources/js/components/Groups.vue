@@ -21,7 +21,7 @@
             }
         },
         mounted() {
-            console.log(this.groups)
+            // console.log(this.groups)
             this.groups = this.initialGroups;
             this.$emit('groupCreated', (group) => {
                 this.groups.push(group);
