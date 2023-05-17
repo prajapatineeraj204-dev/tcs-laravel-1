@@ -161,7 +161,7 @@ input[type=submit] {
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Placement</a>
                         <ul class="dropdown-menu" >
                             <li><a class="dropdown-item" href="{{route('vacancie.index')}}">Vacancies</a></li>
-                            <li><a class="dropdown-item" href="#">Apply for Placement</a></li>
+                            <li><a class="dropdown-item" href="{{route('placement.index')}}">Apply for Placement</a></li>
                             <li><a class="dropdown-item" href="{{route('vacancie.create')}}">Post a vacancy</a></li>
                             <li><a class="dropdown-item" href="#">See Job Applicants</a></li>
                         </ul>
@@ -295,5 +295,6 @@ input[type=submit] {
     };
     requestAnimationFrame(update);
 </script>
+@stack('js');
 </body>
 </html>

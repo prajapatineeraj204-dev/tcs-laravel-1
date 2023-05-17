@@ -25,3 +25,4 @@ laleshwar
 backup.zip
 backup
 *.zip
+/storage/resume/*.pdf
