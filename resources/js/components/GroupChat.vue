@@ -4,6 +4,7 @@
             <div class="accordion-header" :id="'accordion'+group.id">
                 <button @click.prevent="fetch_con()" class="accordion-button border-bottom font-weight-bold collapsed" type="button" data-bs-toggle="collapse" :data-bs-target="'#collapseOne-'+group.id" aria-expanded="true" aria-controls="collapseOne">
                      {{ group.name }}
+                    
                     <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3" aria-hidden="true"></i>
                 <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3" aria-hidden="true"></i>
                 </button>
@@ -87,6 +88,7 @@
                 axios.post('/conversations', {message: this.message, group_id: this.group.id})
                 .then((response) => {
                     this.message = '';
+                    console.log(response.data)
                     this.conversations.push(response.data);
                     // this.listenForNewMessage()
                 });
@@ -95,9 +97,7 @@
             listenForNewMessage() {
                 Echo.private('groups.' + this.group.id)
                     .listen('NewMessage', (e) => {
-                        // console.log(e);
-                        console.log("new message",e)
-                        this.conversations.push(e);
+                        this.conversations.push(e.conversation);
                     });
             }
         }
