@@ -8,6 +8,7 @@
                     <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3" aria-hidden="true"></i>
                 <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3" aria-hidden="true"></i>
                 </button>
+                <group-detail :groupId="group.id"></group-detail>
             </div>
             <div class="accordion-collapse collapse" :id="'collapseOne-' + group.id">
                 <div class="accordion-body">

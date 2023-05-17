@@ -33,4 +33,8 @@ class GroupController extends Controller
         return $group;
     }
 
+    public function show(Request $request, $id){
+        $group = Group::FindOrFail($id);
+        return $group;
+    }
 }

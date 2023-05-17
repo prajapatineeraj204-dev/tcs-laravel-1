@@ -30,6 +30,9 @@ app.component('groups', Groups);
 import GroupChat from './components/GroupChat.vue';
 app.component('group-chat', GroupChat);
 
+import groupDetail from './components/groupDetail.vue'
+app.component('group-detail',groupDetail);
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
