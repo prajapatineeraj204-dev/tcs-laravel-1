@@ -19,9 +19,22 @@
                 {{ user.name }}
                 <i class="fa fa-minus float-end cursor-pointer" @click.prevent="remove_user(user.id)"></i>
             </li>
-            <!-- <li @click.prevent="add_user()">
-                Add User
-            </li> -->
+            <li class="list-group-item cursor-pointer" >
+                <div @click.prevent="add_user()">
+                  Add User <i class="fa fa-chevron-up float-end " v-if="addUserBox"></i>
+                  <i class="fa fa-chevron-down float-end " v-else></i>
+                </div>
+                <div class="form-group" v-if="addUserBox">
+                  <select class="form-select" v-model="newUsers" multiple id="friends">
+                    <option v-for="user in otherUser" :value="user.id">
+                      {{ user.name }}
+                    </option>
+                  </select>
+                  <div class="text-center">
+                    <button type="button" @click.prevent="add_group_user()" class="btn btn-primary mt-2 mb-0">Save</button>
+                  </div>
+                </div>
+            </li>
         </ul>
       </div>
       <div class="modal-footer">
@@ -39,7 +52,10 @@
         data() {
             return{
                 group:{},
-                userList:[]
+                userList:[],
+                addUserBox:false,
+                otherUser:[],
+                newUsers:[]
             }
         },
         mounted() {
@@ -52,16 +68,28 @@
         },
         methods:{
             remove_user(user){
-                axios.put('/groups/'+this.groupId, {user_id:user})
+                axios.put('/groups/'+this.groupId, {user_id:user,action:"remove"})
                 .then((response) => {
                     this.userList = response.data.users
                     this.group = response.data
+                    this.add_user();
                 })
             },
             add_user(){
+                this.addUserBox=!this.addUserBox;
                 axios.get('/groups/'+this.groupId+'/edit')
                 .then((response) => {
-                    console.log(response)
+                  const ids = this.userList.map(x => x.id);
+                  this.otherUser=response.data.filter(x=>!ids.includes(x.id));
+                })
+            },
+            add_group_user(){
+              console.log(this.newUsers)
+              axios.put('/groups/'+this.groupId, {user_id:this.newUsers,action:"add"})
+                .then((response) => {
+                    this.userList = response.data.users
+                    this.group = response.data
+                    this.add_user();
                 })
             }
         }

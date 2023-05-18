@@ -42,8 +42,15 @@ class GroupController extends Controller
     }
 
     public function update(Request $request, $id){
+
         $group = Group::FindOrFail($id);
-        DB::table('group_user')->where('group_id',$id)->where("user_id",$request->user_id)->delete();
+        if($request->action == "remove"){
+            DB::table('group_user')->where('group_id',$id)->where("user_id",$request->user_id)->delete();
+        }elseif($request->action == "add"){
+            foreach($request->user_id as $val){
+                DB::table('group_user')->insert(['group_id'=>$id,"user_id"=>$val]);
+            }
+        }
         $group = Group::FindOrFail($id);
         $group->load("users");
         return $group;
@@ -51,7 +58,8 @@ class GroupController extends Controller
 
     public function edit(Request $request,$id){
         $group = Group::FindOrFail($id);
-        $group->users()->toOther();
-        return $group;
+        // $group->users()->toOther();
+        $user = User::all();
+        return $user;
     }
 }
