@@ -1035,8 +1035,12 @@ background-image: linear-gradient(to right, #FF512F 0%, #F09819  51%, #FF512F  1
 
 }
 .job-card{
-    padding:20px 150px;
-
+    padding:20px 0px;
+}
+@media(min-width:789px) {
+    .job-card{
+        padding:20px 150px;
+    }
 }
 .job-card h3{
     color: #0274be;

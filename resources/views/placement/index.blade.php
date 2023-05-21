@@ -33,106 +33,110 @@
                 <div class="mt-3 showSecondForm" style="display:none;">
                     <h3>Education Details</h3>
                     <div class="basic-details card-box">
-                        <div class="row">
-                            <div class="form-group mb-3">
-                                <label for="txtschoolName">Matriculation School Name </label>
-                                <input required="" type="text" name="txtschoolName" class="form-control" id="txtschoolName" placeholder="Eg. Xavier Public School">
-                            </div>
-                        </div>
-                        <div class="row border-bottom">
-                            <div class="col-md-6">
-                                <div class="form-group mb-3">
-                                    <label for="txtPercentage">Percentage( % ) </label>
-                                    <input required="" type="text" name="txtPercentage" class="form-control" id="txtPercentage">
+                        <div name="add_college" id="add_college">
+                            <div id="education_details">
+                                <div class="row">
+                                    <div class="form-group mb-3">
+                                        <label for="txtCollegeName">School/College </label> 
+                                        <input required="" type="text" name="txtCollegeName" class="form-control" id="txtCollegeName" placeholder="Eg. Xavier Public School">
+                                    </div> 
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group mb-3">
-                                    <label for="txtMarksheet">Marksheet</label>
-                                    <input required="" type="file" name="txtMarksheet" class="form-control" id="txtMarksheet">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group mb-3">
-                                <label for="txtCollegeName">Intermediate College Name </label>
-                                <input required="" type="text" name="txtCollegeName" class="form-control" id="txtCollegeName" placeholder="Eg. Xavier Public School">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group mb-3">
-                                    <label for="txtClgPer">Percentage( % ) </label>
-                                    <input required="" type="text" name="txtClgPer" class="form-control" id="txtClgPer">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group mb-3">
-                                    <label for="txtIntMarsheet">Marksheet</label>
-                                    <input required="" type="file" name="txtIntMarsheet" class="form-control" id="txtIntMarsheet">
-                                </div>
-                            </div>
+                                <div class="row">
+                                    <div class="col-md-3"> 
+                                        <div class="form-group mb-3">
+                                            <label for="txtIntMarsheet">Course</label>
+                                            <input required="" type="text" name="txtIntMarsheet" class="form-control" id="txtIntMarsheet">
+                                        </div> 
+                                    </div>
+                                    <div class="col-md-3"> 
+                                        <div class="form-group mb-3">
+                                            <label for="txtClgPer">Starting Date </label>
+                                            <input required="" type="date" name="txtClgPer" class="form-control" id="txtClgPer">
+                                        </div> 
+                                    </div> 
+                                    <div class="col-md-3"> 
+                                        <div class="form-group mb-3">
+                                            <label for="txtIntMarsheet">End Date</label>
+                                            <input required="" type="date" name="txtIntMarsheet" class="form-control" id="txtIntMarsheet">
+                                        </div> 
+                                    </div>
+                                    <div class="col-md-3"> 
+                                        <div class="form-group mb-3"> 
+                                            <label for="txtIntMarsheet">Percentage (%)</label>
+                                            <input required="" type="text" name="txtIntMarsheet" class="form-control" id="txtIntMarsheet">
+                                        </div>  
+                                    </div> 
+                                </div>  
+                            </div>             
+                            <button type="button" name="add_edu" id="add_edu" class="btn btn-primary">Add More</button>
                         </div>
                         <div class="form-group mb-3 " style="text-align: right;">
                             <button type="button" class="btn btn-primary next-two">Next</button>
                         </div>
                     </div> 
                 </div>
-                <div class="mt-3 showThirdForm" style="display: none;">
-                    <h3>Professional Eductaion Details</h3>
+                <div class="mt-3 showThirdForm" style="display:none;" >
+                    <h3>Experience Details</h3>
                     <div class="basic-details card-box">
-                        <div class="row">
-                            <div class="form-group mb-3">
-                                <label for="txtUitName">University / College Name </label>
-                                <input required="" type="text" name="txtUitName" class="form-control" id="txtUitName" placeholder="Eg. Xavier Public School">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group mb-3">
-                                    <label for="txtUitPer">Percentage( % ) </label>
-                                    <input required="" type="text" name="txtUitPer" class="form-control" id="txtUitPer">
+                        <div name="add_Experience" id="add_Experience">
+                            <div id="experience_details">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group mb-3">
+                                            <label for="txtCompanyName">Company Name </label> 
+                                            <input required="" type="text" name="txtCompanyName" class="form-control" id="txtCompanyName" placeholder="Eg. wipro, infosys">
+                                        </div> 
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group mb-3">
+                                            <label for="txtDesignation">Designation </label> 
+                                            <input required="" type="text" name="txtDesignation" class="form-control" id="txtDesignation" placeholder="Eg. Software Developer">
+                                        </div> 
+                                    </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-md-4"> 
+                                        <div class="form-group mb-3">
+                                            <label for="txtClgPer">Skill </label>
+                                            <input required="" type="text" name="txtClgPer" class="form-control" id="txtClgPer" placeholder="ex:-Excel,php...">
+                                        </div> 
+                                    </div>
+                                    <div class="col-md-4"> 
+                                        <div class="form-group mb-3">
+                                            <label for="txtClgPer">Starting Date </label>
+                                            <input required="" type="date" name="txtClgPer" class="form-control" id="txtClgPer">
+                                        </div> 
+                                    </div> 
+                                    <div class="col-md-4"> 
+                                        <div class="form-group mb-3">
+                                            <label for="txtIntMarsheet">End Date</label>
+                                            <input required="" type="date" name="txtIntMarsheet" class="form-control" id="txtIntMarsheet">
+                                        </div> 
+                                    </div>
+                                </div>  
+                                
+                            </div>             
+                            <button type="button" name="add_exp" id="add_exp" class="btn btn-primary">Add More</button>
+                            <div class="row">
+                                <div class="col-md-6"> 
+                                    <div class="form-group mb-3"> 
+                                        <label for="textComments">Cover Letter</label>
+                                        <textarea class="form-control" placeholder="Write some comments" id="textComments" name="textComments"></textarea>
+                                    </div>  
+                                </div> 
+                                <div class="col-md-6"> 
+                                    <div class="form-group mb-3"> 
+                                        <label for="fileResume">Upload resume</label>
+                                        <input required="" type="file" name="fileResume" class="form-control" id="fileResume">
+                                    </div>  
+                                </div> 
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group mb-3">
-                                    <label for="txtUitMarsheet">Marksheet</label>
-                                    <input required="" type="file" name="txtUitMarsheet" class="form-control" id="txtUitMarsheet">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row border-top">
-                            <div class="col-md-6">
-                                <div class="form-group mb-3">
-                                    <label for="txtUitPer">Years of Experiences </label>
-                                    <select class="form-control" name="experince">
-                                        <option>--- Select Experience ---</option>
-                                        <option value="Fresher">Fresher</option>
-                                        <option value="Fresher">1 Years</option>
-                                        <option value="Fresher">2 Years</option>
-                                        <option value="Fresher">3 Years</option>
-                                        <option value="Fresher">4 Years</option>
-                                        <option value="Fresher">5 Years</option>
-                                        <option value="Fresher">6 Years</option>
-                                        <option value="Fresher">7 Years</option>
-                                        <option value="Fresher">8 Years</option>
-                                        <option value="Fresher">9 Years</option>
-                                        <option value="Fresher">10 Years</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group mb-3">
-                                    <label for="txtResume">Resume</label>
-                                    <input required="" type="file" name="txtResume" class="form-control" id="txtResume">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group mb-3 " style="text-align: right;">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                             <input type="submit" class="btn btn-success" name="submit" id="submit" value="Submit">
                         </div>
                     </div> 
+
                 </div>
+
             </form>
         </div>   
     </div>
@@ -149,7 +153,50 @@
       $(".next-two").click(function(){
         $(".showThirdForm").show();
       });
+      var i = 1;
+    var length;
+        //var addamount = 0;
+    var addamount = 700;
+
+    $("#add_edu").click(function(){
+        
+         addamount += 700;
+         console.log('amount: ' + addamount);
+       i++;
+          $('#education_details').append('<div id="row'+i+'"><hr><div style="text-align:right"><button type="button" name="remove" id="'+j+'" class="btn btn-danger btn_remove">X</button></div><div class="row"><div class="form-group mb-3"><label for="txtCollegeName">School/College </label> <input required="" type="text" name="txtCollegeName" class="form-control" id="txtCollegeName" placeholder="Eg. Xavier Public School"></div> </div><div class="row"><div class="col-md-3"> <div class="form-group mb-3"><label for="txtClgPer">Course </label><input required="" type="text" name="txtClgPer" class="form-control" id="txtClgPer"></div> </div><div class="col-md-3"> <div class="form-group mb-3"><label for="txtClgPer">Starting Date </label><input required="" type="date" name="txtClgPer" class="form-control" id="txtClgPer"></div> </div> <div class="col-md-3"> <div class="form-group mb-3"><label for="txtIntMarsheet">End Date</label><input required="" type="date" name="txtIntMarsheet" class="form-control" id="txtIntMarsheet"></div> </div><div class="col-md-3"> <div class="form-group mb-3"> <label for="txtIntMarsheet">Percentage (%)</label><input required="" type="text" name="txtIntMarsheet" class="form-control" id="txtIntMarsheet"></div>  </div></div></div>');  
+        });
+
+      $(document).on('click', '.btn_remove', function(){  
+        addamount -= 700;
+        console.log('amount: ' + addamount);
+        
       
+          var button_id = $(this).attr("id");     
+          $('#row'+button_id+'').remove();  
+        });
+
+        // second dynamic form for experience
+
+        var j = 1;
+        var length;
+            //var addamount = 0;
+        var addamount = 700;
+
+        $("#add_exp").click(function(){
+            
+             addamount += 700;
+             console.log('amount: ' + addamount);
+           j++;
+              $('#experience_details').append('<div id="row_exp'+j+'"><hr><div style="text-align:right"><button type="button" name="remove" id="'+j+'" class="btn btn-danger btn_remove">X</button></div><div class="row"><div class="col-md-6"><div class="form-group mb-3"><label for="txtCompanyName">Company Name </label> <input required="" type="text" name="txtCompanyName" class="form-control" id="txtCompanyName" placeholder="Eg. wipro, infosys"></div> </div><div class="col-md-6"><div class="form-group mb-3"><label for="txtDesignation">Designation </label> <input required="" type="text" name="txtDesignation" class="form-control" id="txtDesignation" placeholder="Eg. Software Developer"></div> </div></div> <div class="row"><div class="col-md-4"><div class="form-group mb-3"><label for="txtClgPer">Skill </label> <input required="" type="text" name="txtClgPer" class="form-control" id="txtClgPer" placeholder="ex:- Excel,php..."></div></div><div class="col-md-4"><div class="form-group mb-3"><label for="txtClgPer">Starting Date </label> <input required="" type="date" name="txtClgPer" class="form-control" id="txtClgPer"></div></div><div class="col-md-4"><div class="form-group mb-3"><label for="txtIntMarsheet">End Date</label><input required="" type="date" name="txtIntMarsheet" class="form-control" id="txtIntMarsheet"></div></div></div> </div>');  
+            });
+
+          $(document).on('click', '.btn_remove', function(){  
+            addamount -= 700;
+            console.log('amount: ' + addamount);
+             
+              var button_id = $(this).attr("id");     
+              $('#row_exp'+button_id+'').remove();  
+            });
     });
 </script>
 @endpush
