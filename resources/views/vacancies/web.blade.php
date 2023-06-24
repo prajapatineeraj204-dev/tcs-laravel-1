@@ -6,7 +6,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>TCS - The Chartered Space</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets')}}/img/apple-icon.png">
     <link rel="icon" type="image/png" href="{{ asset('assets')}}/img/favicon.png">
     <!-- Fonts -->
@@ -33,9 +33,7 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <style>
-    .exclusive__heading{
-       font-size:40px; 
-    }
+
         /* mentorship :start */
         #heading {
         padding: 12px 24px;

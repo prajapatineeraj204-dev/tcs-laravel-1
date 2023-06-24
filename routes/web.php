@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\ConversationController;
+use App\Http\Controllers\MentorController;
+use App\Http\Controllers\PlacementApplyContoller;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +21,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('try', function () {
+    \Artisen::call("cache:clear");
+});
+
 Auth::routes();
 
 Route::group(['prefix' => 'super-admin'], function ()   {
@@ -30,6 +36,7 @@ Route::resource('conversations', ConversationController::class);
 Route::resource('/vacancie', App\Http\Controllers\VacanciesController::class)->name('vacancie',"*");
 Route::resource('/vacancie-apply', App\Http\Controllers\VacancieApplyController::class)->name('vacancieapply',"*");
 Route::resource('/placement', App\Http\Controllers\PlacementController::class)->name('placement',"*");
+Route::post('/placement-apply', [PlacementApplyContoller::class, 'store'])->name('placementapply',"*");
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/chat', [App\Http\Controllers\HomeController::class, 'chat']);
@@ -65,3 +72,5 @@ Route::group(['prefix' => 'admin'], function () {
 
 
 
+// MentorController
+Route::get('/mentor', [MentorController::class, 'index'])->name('mentorApplication');

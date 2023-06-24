@@ -9,8 +9,8 @@
     </div>
     <div class="container-fluid" style="background: rgb(244, 245, 249);">
          <div class="container job-card">
-            <form action="http://narayan.live/vacancie" method="post">
-                <input type="hidden" name="_token" value="jPoCTxKJN91sPKftChJP7VAQ2JuIO5PG2W44f5pM">
+            <form action="{{ route('placementapply') }}" method="post" enctype="multipart/form-data">
+                @csrf
                 <h3>Basic Details</h3>
                 <div class="basic-details card-box">
                     <div class="form-group mb-3">
@@ -23,7 +23,7 @@
                     </div>
                     <div class="form-group mb-3">
                         <label for="MobileNo">Mobile No.</label>
-                        <input required="" type="number" name="MobileNo" class="form-control" id="MobileNo" placeholder="Eg. 987 XXX XXXX">
+                        <input required="" type="number" name="phone" class="form-control" id="MobileNo" placeholder="Eg. 987 XXX XXXX">
                     </div>
                     <div class="form-group mb-3 " style="text-align: right;">
                         <button type="button" class="btn btn-primary next-one">Next</button>
@@ -38,32 +38,32 @@
                                 <div class="row">
                                     <div class="form-group mb-3">
                                         <label for="txtCollegeName">School/College </label> 
-                                        <input required="" type="text" name="txtCollegeName" class="form-control" id="txtCollegeName" placeholder="Eg. Xavier Public School">
+                                        <input required="" type="text" name="education" class="form-control" id="txtCollegeName" placeholder="Eg. Xavier Public School">
                                     </div> 
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3"> 
                                         <div class="form-group mb-3">
                                             <label for="txtIntMarsheet">Course</label>
-                                            <input required="" type="text" name="txtIntMarsheet" class="form-control" id="txtIntMarsheet">
+                                            <input required="" type="text" name="course_name" class="form-control" id="txtIntMarsheet">
                                         </div> 
                                     </div>
                                     <div class="col-md-3"> 
                                         <div class="form-group mb-3">
                                             <label for="txtClgPer">Starting Date </label>
-                                            <input required="" type="date" name="txtClgPer" class="form-control" id="txtClgPer">
+                                            <input required="" type="date" name="start_date" class="form-control" id="txtClgPer">
                                         </div> 
                                     </div> 
                                     <div class="col-md-3"> 
                                         <div class="form-group mb-3">
                                             <label for="txtIntMarsheet">End Date</label>
-                                            <input required="" type="date" name="txtIntMarsheet" class="form-control" id="txtIntMarsheet">
+                                            <input required="" type="date" name="end_date" class="form-control" id="txtIntMarsheet">
                                         </div> 
                                     </div>
                                     <div class="col-md-3"> 
                                         <div class="form-group mb-3"> 
                                             <label for="txtIntMarsheet">Percentage (%)</label>
-                                            <input required="" type="text" name="txtIntMarsheet" class="form-control" id="txtIntMarsheet">
+                                            <input required="" type="text" name="precentage" class="form-control" id="txtIntMarsheet">
                                         </div>  
                                     </div> 
                                 </div>  
@@ -84,13 +84,13 @@
                                     <div class="col-md-6">
                                         <div class="form-group mb-3">
                                             <label for="txtCompanyName">Company Name </label> 
-                                            <input required="" type="text" name="txtCompanyName" class="form-control" id="txtCompanyName" placeholder="Eg. wipro, infosys">
+                                            <input required="" type="text" name="company_name" class="form-control" id="txtCompanyName" placeholder="Eg. wipro, infosys">
                                         </div> 
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group mb-3">
                                             <label for="txtDesignation">Designation </label> 
-                                            <input required="" type="text" name="txtDesignation" class="form-control" id="txtDesignation" placeholder="Eg. Software Developer">
+                                            <input required="" type="text" name="designation" class="form-control" id="txtDesignation" placeholder="Eg. Software Developer">
                                         </div> 
                                     </div>
                                 </div>
@@ -98,19 +98,19 @@
                                     <div class="col-md-4"> 
                                         <div class="form-group mb-3">
                                             <label for="txtClgPer">Skill </label>
-                                            <input required="" type="text" name="txtClgPer" class="form-control" id="txtClgPer" placeholder="ex:-Excel,php...">
+                                            <input required="" type="text" name="skills" class="form-control" id="txtClgPer" placeholder="ex:-Excel,php...">
                                         </div> 
                                     </div>
                                     <div class="col-md-4"> 
                                         <div class="form-group mb-3">
                                             <label for="txtClgPer">Starting Date </label>
-                                            <input required="" type="date" name="txtClgPer" class="form-control" id="txtClgPer">
+                                            <input required="" type="date" name="skill_start" class="form-control" id="txtClgPer">
                                         </div> 
                                     </div> 
                                     <div class="col-md-4"> 
                                         <div class="form-group mb-3">
                                             <label for="txtIntMarsheet">End Date</label>
-                                            <input required="" type="date" name="txtIntMarsheet" class="form-control" id="txtIntMarsheet">
+                                            <input required="" type="date" name="skill_end" class="form-control" id="txtIntMarsheet">
                                         </div> 
                                     </div>
                                 </div>  
@@ -121,13 +121,13 @@
                                 <div class="col-md-6"> 
                                     <div class="form-group mb-3"> 
                                         <label for="textComments">Cover Letter</label>
-                                        <textarea class="form-control" placeholder="Write some comments" id="textComments" name="textComments"></textarea>
+                                        <textarea class="form-control" placeholder="Write some comments" id="textComments" name="cover_latter"></textarea>
                                     </div>  
                                 </div> 
                                 <div class="col-md-6"> 
                                     <div class="form-group mb-3"> 
                                         <label for="fileResume">Upload resume</label>
-                                        <input required="" type="file" name="fileResume" class="form-control" id="fileResume">
+                                        <input required="" type="file" name="file_path" class="form-control" id="fileResume">
                                     </div>  
                                 </div> 
                             </div>

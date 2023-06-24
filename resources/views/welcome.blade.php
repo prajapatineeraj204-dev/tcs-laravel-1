@@ -7,9 +7,9 @@
             
         </div>
         <div class="row align-items-center h-100">
-            <div class="col-md-6">
-                <h1>An Exclusive Place<br><span style="color: gold;">To Serve Your Professional Needs</span></h1>
-                <p><span class="auto-input">Risk Management By CA Shivam Palan</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true">|</span></p>
+            <div class="col-md-7">
+                <h1 class="exclusive_heading">An Exclusive Place<br><span style="color: gold;">To Serve Your Professional Needs</span></h1>
+                <p><span class="auto-input">An initiative by CA Nikhil Khaneja</span></p>
                 <div class="row gap-2 mt-2"> 
                     <!--<a class="loginBtn login-btn" href="#">Sign Up</a>--> 
                     <a href="#" class="loginBtn login-btn position-relative" id="iuqkr" style="margin: 0; width:49%">Courses</a> 
@@ -30,8 +30,8 @@
                 <!--	<a class="heroBtn position-relative" href="#scroll" style="margin: 0; width:49%">View Courses <i class="fa-solid fa-angle-down"></i></a>-->
                 <!--</div>-->
             </div>
-            <div class="col-md-6 align-items-center col-md-6 d-flex justify-content-end">
-                <img src="{{asset('../resources/img/ezgif.com-video-to-gif.gif')}}" class="w-75 position-relative"/>
+            <div class="col-md-5 align-items-center d-flex justify-content-end">
+                <img src="{{asset('/assets/img/ezgif.com-video-to-gif.gif')}}" class="w-75 position-relative"/>
             </div>
         </div>
     </div>
@@ -43,28 +43,28 @@
             <div class="row justify-content-center">
                 <div class="col-md-3">
                     <div class="usb-tab">
-                        <img src="{{asset('../resources/img/nZIwxLt.png')}}" alt="Learners"/>
+                        <img src="{{asset('/assets/img/nZIwxLt.png')}}" alt="Learners"/>
                         <h3 class="counter" data-target="25000">40000+</h3>
                         <p class="title">Learners</p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="usb-tab">
-                        <img src="{{asset('../resources/img/RVw7uoZ.png')}}" alt="Mentorship"/>
+                        <img src="{{asset('/assets/img/RVw7uoZ.png')}}" alt="Mentorship"/>
                         <h3 class="counter" data-target="25000" >1:1</h3>
                         <p class="title">Mentorship</p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="usb-tab">
-                        <img src="{{asset('../resources/img/jPIuLay.png')}}" alt="Mentors"/>
+                        <img src="{{asset('/assets/img/jPIuLay.png')}}" alt="Mentors"/>
                         <h3 class="counter" data-target="25000" >400+</h3>
                         <p class="title">Mentors</p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="usb-tab">
-                        <img src="{{asset('../resources/img/oRkNoplaced.png')}}" alt="Candidates Placed"/>
+                        <img src="{{asset('/assets/img/oRkNoplaced.png')}}" alt="Candidates Placed"/>
                         <h3 class="counter" data-target="25000" >400+</h3>
                         <p class="title">Candidates Placed</p>
                     </div>
@@ -82,7 +82,7 @@
             <div class="col-md">
                 <div class="courses-box">
                     <div class="courses-img red-box">
-                        <img src="{{asset('../resources/img/xL0Hj6W.png')}}" alt="Full Batch">
+                        <img src="{{asset('/assets/img/xL0Hj6W.png')}}" alt="Full Batch">
                     </div>
                     <div class="courses-name">
                         <h6>Full Batch</h6>
@@ -93,7 +93,7 @@
             <div class="col-md">
                 <div class="courses-box">
                     <div class="courses-img blue-box">
-                        <img src="{{asset('../resources/img/8nRF9ZL.png')}}" alt="Concept Building">
+                        <img src="{{asset('/assets/img/8nRF9ZL.png')}}" alt="Concept Building">
                     </div>
                     <div class="courses-name">
                         <h6>Concept Building</h6>
@@ -104,7 +104,7 @@
             <div class="col-md">
                 <div class="courses-box">
                     <div class="courses-img green-box">
-                        <img src="{{asset('../resources/img/quSOMet.png')}}" alt="Full Batch">
+                        <img src="{{asset('/assets/img/quSOMet.png')}}" alt="Full Batch">
                     </div>
                     <div class="courses-name">
                         <h6>Books</h6>
@@ -115,7 +115,7 @@
             <div class="col-md">
                 <div class="courses-box ">
                     <div class="courses-img yellow-box">
-                        <img src="{{asset('../resources/img/xFIJ7test.png')}}" alt="Test Series">
+                        <img src="{{asset('/assets/img/xFIJ7test.png')}}" alt="Test Series">
                     </div>
                     <div class="courses-name">
                         <h6>Test Series</h6>
@@ -126,7 +126,7 @@
             <div class="col-md">
                 <div class="courses-box ">
                     <div class="courses-img purple-box">
-                        <img src="{{asset('../resources/img/0ffLouQ.png')}}" alt="Free Resources">
+                        <img src="{{asset('/assets/img/0ffLouQ.png')}}" alt="Free Resources">
                     </div>
                     <div class="courses-name">
                         <h6>Free Resources</h6>
@@ -148,7 +148,7 @@
             <div class="col-md">
                 <div class="courses-box">
                     <div class="courses-img green-box">
-                        <img src="{{asset('../resources/img/7NvZ0ur.png')}}" alt="Excel">
+                        <img src="{{asset('/assets/img/7NvZ0ur.png')}}" alt="Excel">
                     </div>
                     <div class="courses-name">
                         <h6>Excel</h6>
@@ -159,7 +159,7 @@
             <div class="col-md">
                 <div class="courses-box">
                     <div class="courses-img blue-box">
-                        <img src="{{asset('../resources/img/aypWgjA.png')}}" alt="Sap Fico">
+                        <img src="{{asset('/assets/img/aypWgjA.png')}}" alt="Sap Fico">
                     </div>
                     <div class="courses-name">
                         <h6>Sap Fico</h6>
@@ -170,7 +170,7 @@
             <div class="col-md">
                 <div class="courses-box">
                     <div class="courses-img red-box">
-                        <img src="{{asset('../resources/img/ySbV8icons8databaseadministrator80.png')}}" alt="SQL">
+                        <img src="{{asset('/assets/img/ySbV8icons8databaseadministrator80.png')}}" alt="SQL">
                     </div>
                     <div class="courses-name">
                         <h6>SQL</h6>
@@ -181,7 +181,7 @@
             <div class="col-md">
                 <div class="courses-box ">
                     <div class="courses-img yellow-box">
-                        <img src="{{asset('../resources/img/MJmhkicons8python80.png')}}" alt="Python">
+                        <img src="{{asset('/assets/img/MJmhkicons8python80.png')}}" alt="Python">
                     </div>
                     <div class="courses-name">
                         <h6>Python</h6>
@@ -192,7 +192,7 @@
             <div class="col-md">
                 <div class="courses-box ">
                     <div class="courses-img purple-box">
-                        <img src="{{asset('../resources/img/Yc7gegoogle.png')}}" alt="Financial Modeling">
+                        <img src="{{asset('/assets/img/Yc7gegoogle.png')}}" alt="Financial Modeling">
                     </div>
                     <div class="courses-name">
                         <h6>Financial Modeling</h6>
@@ -214,7 +214,7 @@
             <div class="col-md">
                 <div class="courses-box">
                     <div class="courses-img red-box">
-                        <img src="{{asset('../resources/img/EupmoZk.png')}}" alt="Live Workshops">
+                        <img src="{{asset('/assets/img/EupmoZk.png')}}" alt="Live Workshops">
                     </div>
                     <div class="courses-name">
                         <h6>Live Workshops</h6>
@@ -225,7 +225,7 @@
             <div class="col-md">
                 <div class="courses-box">
                     <div class="courses-img green-box">
-                        <img src="{{asset('../resources/img/jKHQxoK.png')}}" alt="Company Guides">
+                        <img src="{{asset('/assets/img/jKHQxoK.png')}}" alt="Company Guides">
                     </div>
                     <div class="courses-name">
                         <h6>Company Guides</h6>
@@ -236,7 +236,7 @@
             <div class="col-md">
                 <div class="courses-box">
                     <div class="courses-img blue-box">
-                        <img src="{{asset('../resources/img/Gc8sOJm.png')}}" alt="Aptitude Tests">
+                        <img src="{{asset('/assets/img/Gc8sOJm.png')}}" alt="Aptitude Tests">
                     </div>
                     <div class="courses-name">
                         <h6>Aptitude Tests</h6>
@@ -247,7 +247,7 @@
             <div class="col-md">
                 <div class="courses-box ">
                     <div class="courses-img yellow-box">
-                        <img src="{{asset('../resources/img/MJmhkicons8python80.png')}}" alt="Python">
+                        <img src="{{asset('/assets/img/MJmhkicons8python80.png')}}" alt="Python">
                     </div>
                     <div class="courses-name">
                         <h6>Python</h6>
@@ -258,7 +258,7 @@
             <div class="col-md">
                 <div class="courses-box ">
                     <div class="courses-img purple-box">
-                        <img src="{{asset('../resources/img/Yc7gegoogle.png')}}" alt="Financial Modeling">
+                        <img src="{{asset('/assets/img/Yc7gegoogle.png')}}" alt="Financial Modeling">
                     </div>
                     <div class="courses-name">
                         <h6>Financial Modeling</h6>
