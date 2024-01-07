@@ -7,6 +7,7 @@ use App\Models\PlacementApply;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class PlacementApplyContoller extends Controller
 {
@@ -32,11 +33,20 @@ class PlacementApplyContoller extends Controller
         }
         //validate incoming request parameters
         $validate = $request->validate([
+            '*' => 'required',
             'name' => 'required|string',
             'email' => 'required|email',
             'phone' => 'required|string',
             'file_path' => 'nullable|file' 
         ]);
+
+                
+        //  file handling
+        $file = $request->file('file_path');
+        $resume = str_replace(" ","-",$request->name)."_".auth()->user()->id."_".time().".".$file->getClientOriginalExtension();
+        $destinationPath = '../storage/placements/resume';
+        $file->move($destinationPath, $resume);
+
 
         //create new placement instance and fill it with data
         $placementApply = new PlacementApply();
@@ -54,13 +64,6 @@ class PlacementApplyContoller extends Controller
         $placementApply->skill_end = $request->skill_end;
         $placementApply->cover_latter = $request->cover_latter;
         $placementApply->skills = $request->skills;
-
-        
-        //  file handling
-        $file = $request->file('file_path');
-        $resume = str_replace(" ","-",$request->name)."_".auth()->user()->id."_".time().".".$file->getClientOriginalExtension();
-        $destinationPath = '../storage/placements/resume';
-        $file->move($destinationPath,$resume);
         $placementApply->file_path = $file;
 
         // if($request->hasFile('file_path')){
@@ -73,5 +76,13 @@ class PlacementApplyContoller extends Controller
 
         // return 
         return redirect()->back()->with('success', 'Application successfully submitted');
+    }
+    public function applicants()
+    {
+        //
+        // $mentorTypes = ['mentor.professionals', 'Both of the above'];
+        $applicants = DB::table('placements_apply')
+            ->get();
+        return view('placement.applicants', ['applicants' => $applicants]);
     }
 }

@@ -9,7 +9,6 @@
                 <div class="card-body">      
                     <form method="POST" action="{{ route('useraddressupdate') }}">
                         @csrf
-
                        <input id="userid" type="hidden" class="form-control @error('userid') is-invalid @enderror" name="userid" value="{{$userid}}"  autocomplete="userid" autofocus>
 
                         <div class="row mb-3">
@@ -25,7 +24,6 @@
                                 @enderror
                             </div>
                         </div>
-
                         <div class="row mb-3">
                             <label for="address2" class="col-md-4 col-form-label text-md-end">{{ __('Address 2') }}</label>
 
@@ -39,8 +37,6 @@
                                 @enderror
                             </div>
                         </div>
-
-
                          <div class="row mb-3">
                             <label for="city" class="col-md-4 col-form-label text-md-end">{{ __('City') }}</label>
 
@@ -54,7 +50,6 @@
                                 @enderror
                             </div>
                         </div>
-
                          <div class="row mb-3">
                             <label for="state" class="col-md-4 col-form-label text-md-end">{{ __('State') }}</label>
 
@@ -68,8 +63,6 @@
                                 @enderror
                             </div>
                         </div>
-
-                        
                         <div class="row mb-3">
                             <label for="Pincode" class="col-md-4 col-form-label text-md-end">{{ __('Pincode') }}</label>
 

@@ -55,6 +55,6 @@ class VacancieApplyController extends Controller
         // dd($apply);
         
         Mail::to($vacancie->email)->send(new VacancieApplyMail($apply));
-        return back()->with('success','Vacancies applay Successfully');
+        return redirect()->back()->with('success','Vacancies applay Successfully');
     }
 }

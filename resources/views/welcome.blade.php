@@ -1,37 +1,39 @@
 @extends('layouts.web')
 
 @section('content')
-<section id="herosection">
-    <div class="container h-100 py-3 position-relative">
-        <div id="particles-js">
-            
-        </div>
-        <div class="row align-items-center h-100">
-            <div class="col-md-7">
-                <h1 class="exclusive_heading">An Exclusive Place<br><span style="color: gold;">To Serve Your Professional Needs</span></h1>
-                <p><span class="auto-input">An initiative by CA Nikhil Khaneja</span></p>
-                <div class="row gap-2 mt-2"> 
-                    <!--<a class="loginBtn login-btn" href="#">Sign Up</a>--> 
-                    <a href="#" class="loginBtn login-btn position-relative" id="iuqkr" style="margin: 0; width:49%">Courses</a> 
-                    <a class="heroBtn position-relative" href="#scroll" style="margin: 0; width:49%">Vacancies</a> 
-                </div>
-                <div class="row gap-2 mt-2"> 
-                    <!--<a class="loginBtn login-btn" href="#">Sign Up</a>--> 
-                    <a href="#" class="loginBtn login-btn position-relative" id="iuqkr" style="margin: 0; width:49%">Mentorship</a> 
-                    <a class="heroBtn position-relative" href="#scroll" style="margin: 0; width:49%">Resume Builder</i></a> 
-                </div>
-                <div class="row gap-2 mt-2"> 
-                    <!--<a class="loginBtn login-btn" href="#">Sign Up</a>--> 
-                    <a href="#" class="loginBtn login-btn position-relative" id="iuqkr" style="margin: 0; width:49%">Ask a Question</a> 
-                    <a class="heroBtn position-relative" href="#scroll" style="margin: 0; width:49%">Chat Group</a> 
-                </div>
- <!--               <div class="button-wrapper btn-container-center">-->
-                <!--	<a class="loginBtn login-btn position-relative"  id="iuqkr" style="margin: 0; width:49%"><i class="fa-solid fa-user"></i> Sign Up</a>-->
-                <!--	<a class="heroBtn position-relative" href="#scroll" style="margin: 0; width:49%">View Courses <i class="fa-solid fa-angle-down"></i></a>-->
-                <!--</div>-->
+<section id="herosection" >
+    <div class="main__banner">
+        <div class="container h-100 py-3 position-relative">
+            <div id="particles-js">
+                
             </div>
-            <div class="col-md-5 align-items-center d-flex justify-content-end">
-                <img src="{{asset('/assets/img/ezgif.com-video-to-gif.gif')}}" class="w-75 position-relative"/>
+            <div class="row align-items-center h-100">
+                <div class="col-md-7">
+                    <h1 class="exclusive_heading">An Exclusive Place<br><span style="color: #0047AB;">To Serve Your Professional Needs</span></h1>
+                    <p><span class="auto-input"><strong>An initiative by CA Nikhil Khaneja</strong></span></p>
+                    <div class="row gap-2 mt-2"> 
+                        <!--<a class="loginBtn login-btn" href="#">Sign Up</a>--> 
+                        <a href="{{route('practicalTrainings')}}" class="loginBtn login-btn position-relative" id="iuqkr" style="margin: 0; width:49%">Practical Trainings</a> 
+                        <a class="heroBtn position-relative" href="/vacancie" style="margin: 0; width:49%">Vacancies</a> 
+                    </div>
+                    <div class="row gap-2 mt-2"> 
+                        <!--<a class="loginBtn login-btn" href="#">Sign Up</a>--> 
+                        <a href="mentor_application" class="loginBtn login-btn position-relative" id="iuqkr" style="margin: 0; width:49%">Mentorship</a> 
+                        <a class="heroBtn position-relative" href="/" style="margin: 0; width:49%">Resume Builder</i></a> 
+                    </div>
+                    <div class="row gap-2 mt-2"> 
+                        <!--<a class="loginBtn login-btn" href="#">Sign Up</a>--> 
+                        <a href="#" class="loginBtn login-btn position-relative" id="iuqkr" style="margin: 0; width:49%">Ask a Question</a> 
+                        <a class="heroBtn position-relative" href="#scroll" style="margin: 0; width:49%">Chat Group</a> 
+                    </div>
+     <!--               <div class="button-wrapper btn-container-center">-->
+                    <!--	<a class="loginBtn login-btn position-relative"  id="iuqkr" style="margin: 0; width:49%"><i class="fa-solid fa-user"></i> Sign Up</a>-->
+                    <!--	<a class="heroBtn position-relative" href="#scroll" style="margin: 0; width:49%">View Courses <i class="fa-solid fa-angle-down"></i></a>-->
+                    <!--</div>-->
+                </div>
+                <div class="col-md-5 align-items-center d-flex justify-content-end">
+                    <!--<img src="{{asset('/assets/img/ezgif.com-video-to-gif.gif')}}" class="w-75 position-relative"/>-->
+                </div>
             </div>
         </div>
     </div>
@@ -74,10 +76,10 @@
     </div>
 </section>
 
-<section id="courses" style="background-color: rgba(226, 16, 50, 0.03);">
+<section id="courses" style="background:#f5f7f9" >
     <div class="container py-5">
-        <h2 class="title text-center">Risk Management Courses</h2>
-        <p class="sub-title">By CA Shivam Palan</p>
+        <h2 class="title text-center">Financial Modelling and Valuation</h2>
+        <p class="sub-title">By CA Nikhil Khaneja</p>
         <div class="row">
             <div class="col-md">
                 <div class="courses-box">
@@ -140,7 +142,7 @@
     </div>
 </section>
 
-<section id="upskill-courses" style="background-color: rgb(235, 252, 252);">
+<section id="upskill-courses" >
     <div class="container py-5">
         <h2 class="title text-center">Shop</h2>
         <p class="sub-title">Be A Lifelong Learner</p>
@@ -206,7 +208,7 @@
     </div>
 </section>
 
-<section id="placement-preparation" style="background-color: rgba(2, 116, 190, 0.1);">
+<section id="placement-preparation" style="background:#f5f7f9">
     <div class="container py-5">
         <h2 class="title text-center">Placement Preparation</h2>
         <p class="sub-title">Let's go grab your dream job, Together</p>
@@ -433,7 +435,7 @@
         <div class="is-container container" style="max-width: 1400px;"> 
          <div class="row clearfix">  
           <div class="meetYourMentor" spellcheck="false"> 
-           <h2>Meet Your <span>Mentors</span></h2> 
+           <h2>We are here to <span>help you</span></h2> 
           </div> 
           <div class="mentorSlider" spellcheck="false"> 
            <div class="slide-track"> 
@@ -551,12 +553,12 @@
          <div class="row clearfix">
           <div class="support" spellcheck="false"> 
            <div class="supportContent"> 
-            <h2>Crush Your <span style="color: gold;">Career Goals</span></h2> 
-            <p>Unsure how? We can help</p> 
+            <h2>Partner in your <span style="color: #0047ab">Career Journey</span></h2> 
+            <p>A small step will take you to the big leap</p> 
             <div class="supportRow"> 
-             <a href="tel:" class="heroBtn" style="margin: 0;"><i class="fa-solid fa-phone"></i> +919078768782</a> 
-             <a href="tel:" class="heroBtn1" style="margin: 0;"><i class="fa-solid fa-phone"></i> <b>+918776690907</b></a> 
-             <a href="mailto:support@example.com" class="login-btn" style="margin: 0;">support@example.com <i class="fa-solid fa-envelope"></i></a> 
+             <a href="tel:+919319737446" class="heroBtn" style="margin: 0;"><i class="fa-solid fa-phone"></i> +919319737446</a> 
+             <a href="tel:+919818022182 " class="heroBtn1" style="margin: 0;"><i class="fa-solid fa-phone"></i> <b>+919818022182 </b></a> 
+             <a href="mailto:Info@thecharteredspace.com" class="login-btn" style="margin: 0;">Info@thecharteredspace.com <i class="fa-solid fa-envelope"></i></a> 
             </div> 
             <p class="p-1"><strong>Support Timing:</strong> Monday - Saturday, 10 AM - 7 PM</p> 
            </div> 

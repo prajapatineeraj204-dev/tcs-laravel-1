@@ -115,6 +115,10 @@
                 <label for="SalaryInhand">Job Address *</label>
                 <textarea name="job_address" rows="3" cols="6" class="form-control"></textarea>
               </div>
+                <div class="d-flex">
+                    <input type="checkbox" id="termAndCondtion" name="termAndCondtion" value="policy" class="form-check-input">
+                   <p style="margin-left:10px">I have read and agree to the <a href="#">Term and Condition</a>!.</p> 
+                </div>
               <div class="col-md-12 text-center">
                   <button type="submit" class="heroBtn">Save</button>
               </div>

@@ -22,6 +22,10 @@ body{
 h1, h2, h3, h4, h5, h6, p, a, li {
     font-family: 'Poppins', sans-serif !important;
 }
+sup, sub{
+    color:red!important;
+    font-weight:600;
+}
 .p-1{
     padding: 1.5rem 0 !important;
 }
@@ -82,30 +86,20 @@ h1, h2, h3, h4, h5, h6, p, a, li {
     text-decoration: none;
 }
 
-header .navbar-nav li a, header .navbar-nav li label {
-    color: #171c24 !important;
+.bg__background{
+    background:#0047AB !important;
+}
+header .navbar-nav .nav-item .nav-link, header .navbar-nav li label {
+    color: #FFFFFF !important;
     font-size: 15px;
     font-weight: 500;
-    padding: 14px;
+    padding: 10px;
     border-radius: 5px;
     transition: all 0.3s ease;
     text-decoration: none;
-}
+    background: #0047Ac ;
+}}
 
-header .navbar-nav li a.loginbtn{
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-    color: #fff !important;
-    background-color: var(--icon-button-hover-color);
-    padding: 5px 15px;
-    width: max-content;
-    display: inline-block;
-    cursor: pointer;
-    border: 1px solid var(--icon-button-hover-color);
-    transition: 0.2s all linear;
-    border-radius: 0;
-}
 
 header .dropdown .dropdown-menu{
     border-radius: 0;
@@ -113,23 +107,41 @@ header .dropdown .dropdown-menu{
 
 header .dropdown:hover .dropdown-menu{
     display: block;
+    
 }
+/*header .nav-bar ul{*/
+/*    background: #ddd !important;*/
+/*    height: 0!important;*/
+/*    left: 0!important;*/
+/*    opacity: 0!important;*/
+/*    position: absolute!important;*/
+/*    transition: all .5s ease!important;*/
+/*    top: 35px!important;*/
+/*    width: 100%!important; */
+/*}*/
 
 #herosection{
     height: 100vh;
-    background-image: linear-gradient(90deg, rgb(24, 40, 72), rgb(75, 108, 183));
+    /*background-image: linear-gradient(90deg, rgb(24, 40, 72), rgb(75, 108, 183));*/
+    
+}
+.main__banner{
+    background-image: url("../img/banner-1.jpg");
+    width: 100%;
+    height: 100%;
+    background-size: cover;
 }
 
 #herosection h1 {
     font-size: var(--h2);
     font-weight: 700!important;
-    color: var(--secondary-heading-color);
+    color: #002e5b;
 }
 
 #herosection p {
-    font-size: var(--p);
+    font-size: 25px;
     font-weight: 400;
-    color: var(--secondary-text-color);
+    color: #002e5b;;
 }
 
 #herosection .heroBtn,#herosection .login-btn {
@@ -196,10 +208,6 @@ header .dropdown:hover .dropdown-menu{
 #usb-bar img {
     margin: 0!important;
     width: 40px;
-}
-
-#courses{
-
 }
 
 h2.title{
@@ -409,7 +417,7 @@ p.sub-title{
 }
 .heroBtn, .login-btn {
    text-decoration: none;
-   width: 300px;
+   width: 350px;
    color: #ffffff!important;
    display: inline-block;
    padding: 10px 20px;
@@ -554,7 +562,7 @@ p.sub-title{
     }
 }
 .free-courses-one{
-    background-color: rgba(126, 87, 194, 0.1);
+    background-color: #f5f7f9;
     padding: 80px 0 80px 0;
 }
 /* testimonial */
@@ -760,7 +768,7 @@ p.sub-title{
   /* Team */
   .team-one{
     padding:80px 0 80px 0;
-    background-color: rgba(2, 116, 190, 0.1);
+    background-color: #f5f7f9;
   }
 
   .meetYourMentor {
@@ -885,7 +893,7 @@ p.sub-title{
   }
   /* career goal */
   .careergoal-one{
-    background-image: linear-gradient(90deg, rgb(24, 40, 72), rgb(75, 108, 183));
+    background-image: #ffffff;
     padding: 80px 0 80px 0;
 }
 .support{
@@ -899,18 +907,18 @@ p.sub-title{
 }
 
 .supportContent h2{
-    font-size: var(--h2);
-    color: var(--secondary-heading-color);
+    font-size: 48px;
+    color: #002e5b;
     font-weight: 700;
     text-align: center;      
 }
 
 .supportContent p{
-  font-size: var(--p);
-  color: var(--secondary-text-color);
-  font-weight: 400;
-  text-align: center;   
-  margin-bottom: 50px;   
+  font-size: 14px;
+    color: #0047AB;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 50px;
 }
 
 .supportRow{
@@ -972,7 +980,7 @@ background-image: linear-gradient(to right, #FF512F 0%, #F09819  51%, #FF512F  1
 }
 
 #footer{
-    background-color: #000;
+    background-color: #0047AB;
     color: #fff;
 }
 #footer p.sub-title{
@@ -1000,7 +1008,7 @@ background-image: linear-gradient(to right, #FF512F 0%, #F09819  51%, #FF512F  1
 
 #footer ul li a {
     text-decoration: none;
-    color: #c4c4c4;
+    color: #ffffff;
     transition: 0.2s all linear;
     font-size: var(--p);
 }
@@ -1011,9 +1019,342 @@ background-image: linear-gradient(to right, #FF512F 0%, #F09819  51%, #FF512F  1
     height: 100vh;
     z-index: 0;
 }
-.nav-padding{
-    padding: 0 40px !important;
-}
+
 .exclusive_heading{
     font-size:45px;
+}
+header .dropdown .dropdown-menu{
+    background:#ffffff !important;
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 0.25rem 1rem;
+    clear: both;
+    font-weight: 400;
+    color: #000000 !important;
+    text-align: inherit;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+    margin:5px 0;
+}
+
+
+.navbar-collapse{
+    /*flex-basis: 100%;*/
+    flex-grow: 0;
+    align-items: end;
+}
+
+.navbar-brand a{
+    color:#ffffff !important;
+}
+.navbar-light .navbar-brand{
+    width:30% !important;
+}
+
+.dropdown-item:focus, .dropdown-item:hover{
+    color: #000 !important;
+    background-color: ##e9ecef !important;
+}
+
+/* mentorsip form */
+ .exclusive__heading{
+       font-size:40px; 
+    }
+    /* mentorship :start */
+    #heading {
+        padding: 12px 24px;
+        background: #3f51b5;
+        color: #f9472b;
+        font-size: 32px;
+        font-weight: 600;
+        text-align:center;
+    }
+
+    #msform {
+        text-align: center;
+        position: relative;
+        margin-top: 20px;
+        padding:1rem;
+    }
+
+    #msform fieldset {
+        background: white;
+        border: 0 none;
+        border-radius: 0.5rem;
+        box-sizing: border-box;
+        width: 100%;
+        margin: 0;
+        padding-bottom: 20px;
+        position: relative
+    }
+
+    .form-card {
+        text-align: left
+    }
+
+    #msform fieldset:not(:first-of-type) {
+        display: none
+    }
+
+    #msform .form-control{
+        padding: 3px 15px;
+        border: 1px solid #ccc;
+        border-radius: 0px;
+        margin-bottom: 25px;
+        margin-top: 2px;
+        width: 100%;
+        box-sizing: border-box;
+        font-family: montserrat;
+        color: #2C3E50;
+        background-color: #ECEFF1;
+        font-size: 16px;
+        letter-spacing: 1px
+    }
+
+    #msform .action-button {
+        width: 100px;
+        background-image: linear-gradient(to right, #314755 0%, #26a0da  51%, #314755  100%);
+        text-transform: uppercase;
+        background-size: 200% auto;
+        box-shadow: 0 0 20px #eee;
+        color: white;
+        border: 0 none;
+        border-radius: 0px;
+        cursor: pointer;
+        padding: 10px 5px;
+        margin: 10px 0px 10px 5px;
+        float: right
+    }
+        
+
+    #msform .action-button:hover,
+    #msform .action-button:focus {
+        background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+    }
+
+    #msform .action-button-previous {
+        width: 100px;
+        background-image: linear-gradient(to right, #003973 0%, #E5E5BE  51%, #003973  100%);
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        border: 0 none;
+        border-radius: 0px;
+        cursor: pointer;
+        padding: 10px 5px;
+        margin: 10px 5px 10px 0px;
+        float: right;
+        box-shadow: 0 0 20px #eee;
+    }
+
+    #msform .action-button-previous:hover,
+    #msform .action-button-previous:focus {
+        background-position: right center; /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .card {
+        z-index: 0;
+        border: none;
+        position: relative;       
+    }
+
+    .fs-title {
+        font-size: 20px;
+        color: #4260a2;
+        margin-bottom: 15px;
+        font-weight: normal;
+        text-align: left
+    }
+
+    .purple-text {
+        color: #4260a2;
+        font-weight: normal
+    }
+
+    .steps {
+        font-size: 18px;
+        color: gray;
+        margin-bottom: 10px;
+        font-weight: normal;
+        text-align: right
+    }
+
+    .fieldlabels {
+        text-align: left
+    }
+    
+    .fieldlabels__span{
+       font-size:12px;
+       color:gray;
+    }
+    #progressbar {
+        margin-bottom: 30px;
+        overflow: hidden;
+        color: lightgrey
+    }
+
+    #progressbar .active {
+        color: #4260a2;
+    }
+
+    #progressbar li {
+        list-style-type: none;
+        font-size: 15px;
+        width: 25%;
+        float: left;
+        position: relative;
+        font-weight: 400
+    }
+
+    #progressbar #account:before {
+        font-family: FontAwesome;
+        content: "\f13e"
+    }
+
+    #progressbar #personal:before {
+        font-family: FontAwesome;
+        content: "\f007"
+    }
+
+    #progressbar #Experience:before {
+        font-family: FontAwesome;
+        content: "\f030"
+    }
+
+    #progressbar #confirm:before {
+        font-family: FontAwesome;
+        content: "\f00c"
+    }
+
+    #progressbar li:before {
+        width: 50px;
+        height: 50px;
+        line-height: 45px;
+        display: block;
+        font-size: 20px;
+        color: #ffffff;
+        background: lightgray;
+        border-radius: 50%;
+        margin: 0 auto 10px auto;
+        padding: 2px
+    }
+
+    #progressbar li:after {
+        content: '';
+        width: 100%;
+        height: 2px;
+        background: lightgray;
+        position: absolute;
+        left: 0;
+        top: 25px;
+        z-index: -1
+    }
+
+    #progressbar li.active:before,
+    #progressbar li.active:after {
+        background: #4260a2;
+    }
+
+    .progress {
+        height: 12px
+    }
+
+    .fit-image {
+        width: 100%;
+        object-fit: cover
+    }
+    .multiform{
+        background-image: linear-gradient(90deg, rgb(24, 40, 72), rgb(75, 108, 183));;
+    }
+
+        /* mentorship :end  */
+ #login-form-wrap {
+    background-color: #fff;
+    text-align: center;
+    padding: 20px 0 0;
+    border-radius: 4px;
+    box-shadow: 0 30px 50px 0 rgba(0,0,0,.2);
+}
+#login-form {
+    padding: 0 60px 20px 60px;
+}
+#login-form p {
+    position: relative;
+}
+input[type=text], input[type=email], input[type=number] {
+    width: 100%;
+    padding: 0 0 0 10px;
+    margin: 0;
+    color: #8a8b8e;
+    border: 1px solid #c2c0ca;
+    font-style: normal;
+    font-size: 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative;
+    display: inline-block;
+    background: 0 0;
+}
+
+.validation {
+    display: none;
+    position: absolute;
+    content: " ";
+    height: 60px;
+    width: 30px;
+    right: 15px;
+    top: 0;
+}
+#create-account-wrap {
+    background-color: #eeedf1;
+    color: #8a8b8e;
+    font-size: 14px;
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 0 0 4px 4px;
+}
+a, a:link, a:visited, a:active {
+    color: #3ca9e2;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+}
+.company__logo{
+    width:40%;
+}
+
+@media only screen and (max-width: 600px) {
+    .company__logo{
+         width:100%;
+    }
+    .logo a{
+        font-size:15px;
+    }
+}
+
+.forget{
+    padding:5rem;
+}
+.forget title{
+    display:block !important;
+}
+.otp__one{
+    padding:30px;
+    background:#ffffff;
+}
+.main__body{
+    background:#f0f8ff;
+}
+.margin__auto{
+    margin-left: auto;
 }

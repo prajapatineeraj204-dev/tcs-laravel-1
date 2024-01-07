@@ -29,7 +29,18 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::ADMIN;
+    // protected $redirectTo = RouteServiceProvider::ADMIN;
+    protected function authenticated($request, $user)
+    {
+        // Check the user's status here
+        if ($user->role == 3) {
+            // If the user's status is 3, redirect to the ADMIN route
+            return redirect('/admin');
+        }
+
+        // If the user's status is not 3, use the default $redirectTo value
+        return redirect('/');
+    }
 
     /**
      * Create a new controller instance.
@@ -51,9 +62,9 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'numeric'],            
+            'phone' => ['required', 'numeric'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8'],
         ]);
     }
 
