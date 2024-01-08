@@ -27,7 +27,7 @@
         <input type="submit" value="Submit">
       </div>
       <div class="d-flex">
-          <div><p>Not a member? <a href="https://thecharteredspace.com/register">Register</a></p></div>
+          <div><p>Not a member? <a href="{{route('register')}}">Register</a></p></div>
           <div class="margin__auto"><p>Forget <a href="https://thecharteredspace.com/forgot">Password</a></p></div>
       </div>
     </form>

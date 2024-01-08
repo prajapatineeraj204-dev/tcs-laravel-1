@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use DB;
 class PracticalTrainings extends Controller
 {
     public function index(){
-        return view('PracticalTraining/index');
+        $courses=DB::table('tcs_upload_course')->get();
+        return view('PracticalTraining/index',compact('courses'));
     }
+
+   
 }
 

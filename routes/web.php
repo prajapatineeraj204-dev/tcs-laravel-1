@@ -10,6 +10,7 @@ use App\Http\Controllers\MentorController;
 use App\Http\Controllers\PlacementApplyContoller;
 use App\Http\Controllers\PracticalTrainings;
 use App\Http\Controllers\PracticalTrainingsDetails;
+use App\Http\Controllers\PaymentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,6 +50,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/users', [App\Http\Controllers\AdminController::class, 'users'])->name('users');
     Route::post('/adduser', [App\Http\Controllers\AdminController::class, 'adduser'])->name('adduser');
     Route::get('/uploadCourse', [App\Http\Controllers\AdminController::class, 'uploadCourse'])->name('uploadCourse');
+    Route::post('/upload_course', [App\Http\Controllers\AdminController::class, 'upload_course'])->name('upload_course');
+
     Route::get('/useredit/{id}', [App\Http\Controllers\AdminController::class, 'useredit'])->name('useredit');
     Route::post('/userupdate', [App\Http\Controllers\AdminController::class, 'userupdate'])->name('userupdate');
     Route::get('/userdelete/{id}', [App\Http\Controllers\AdminController::class, 'userdelete'])->name('userdelete');
@@ -80,9 +83,8 @@ Route::get('mentor_login', [MentorAuthController::class, 'login']);
 Route::post('mentor_login', [MentorAuthController::class, 'loginRequest'])->name('mentorLogin');
 Route::post('mentor_login', [MentorAuthController::class, 'loginRequest'])->name('mentorLogin');
 Route::get('practicalTrainings', [PracticalTrainings::class, 'index'])->name('practicalTrainings');
-Route::get('practicalTrainingsDetails', [PracticalTrainingsDetails::class, 'index'])->name('practicalTrainingsDetails');
+Route::get('practicalTrainingsDetails/{id}', [PracticalTrainingsDetails::class, 'index'])->name('practicalTrainingsDetails');
 // Route::get('appointment_booking', [AppointmentController::class, 'bookAppointment]']);
-
 Route::middleware('auth', 'verified')->group(function () {
     Route::get('/profile', function () {
         return view('mentor.profile');
@@ -91,7 +93,14 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::Post('/applyMentor', [MentorController::class, 'store'])->name('applyMentor');
     Route::get('/appointment_booking/{mentorId}', [AppointmentController::class, 'show']);
     Route::post('/appointment_booking/{mentorId}', [AppointmentController::class, 'store'])->name('bookAppointment');
+
+    //payment method of razor pay 
+   
+
 });
+ Route::get('razorpay-payment/{id}', [PaymentController::class, 'index']);
+Route::post('razorpay-payment', [PaymentController::class, 'store'])->name('razorpay.payment.store');
+
 Route::get('/mentorship_for_students', [MentorController::class, 'index'])->name('forStudents');
 Route::get('/mentorship_for_professionals', [MentorController::class, 'Professionals'])->name('forProfessionals');
 Route::resource('/placement', App\Http\Controllers\PlacementController::class)->name('placement', "*");

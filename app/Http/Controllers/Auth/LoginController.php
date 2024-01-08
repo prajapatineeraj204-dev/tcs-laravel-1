@@ -28,13 +28,14 @@ class LoginController extends Controller
      */
     protected function authenticated($request, $user)
     {
-        // Check the user's status here
         if ($user->role == 3) {
-            // If the user's status is 3, redirect to the ADMIN route
-            return redirect('/admin');
+            return redirect('/super-admin');
         }
-
-        // If the user's status is not 3, use the default $redirectTo value
+        elseif ($user->role == 2) {
+            return redirect('/admin');
+        }elseif($user->role == 1){
+            return redirect('/');
+        }
         return redirect('/');
     }
 

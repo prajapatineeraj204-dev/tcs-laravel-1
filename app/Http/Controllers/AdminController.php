@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use DataTables;
+use DB;
+
 
 class AdminController extends Controller
 {
@@ -77,5 +79,28 @@ class AdminController extends Controller
   public function uploadCourse()
   {
     return view('admin.uploadCourse');
+  }
+
+  public function upload_course(Request $request)
+  {
+      
+        $arrayPlaylist=implode(',',$request->playlist_name);
+        
+      $res=DB::table('tcs_upload_course')->insert([
+        'course_name'=>$request->course_name,
+        'course_desc'=>$request->course_desc,
+        'scope'=>$request->scope,
+        'career'=>$request->career,
+        'faculty_name'=>$request->faculty_name,
+        'duration'=>$request->duration,
+        'validity'=>$request->validity,
+        'pricing'=>$request->pricing,
+        'playlist_name'=>$arrayPlaylist,
+
+      ]);
+      if($res){
+        return redirect()->back()->with('success','Course Uploade Successfully');
+      }
+
   }
 }

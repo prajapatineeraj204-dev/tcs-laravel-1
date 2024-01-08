@@ -2,27 +2,65 @@
 @section('content')
 
     <div class=".container-fluid w-100 bg-primary h-25 p-0 ">
-        <h3 class="text-center text-white">hello ritik ji </h3>
+        <h3 class="text-center text-white">{{$courses->course_name}} </h3>
     </div>
+                        @if($message = Session::get('success'))
+                            <div class="alert alert-success alert-dismissible fade {{ Session::has('success') ? 'show' : 'in' }}" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                <strong>Success!</strong> {{ $message }}
+                            </div>
+                        @endif
     <div class="container d-flex h-50  flex-column ">
         <img src="{{ asset('/assets/img/couress.png') }}" alt="coures details" class="h-25 w-75" width="400px" height="200px" style="margin: auto">
-        <button class="btn btn-primary w-75" style="margin: auto">BUY NOW</button>
+        @if($payment!==null)     
+        @else
+         <a href="{{url('/razorpay-payment',$courses->id)}}" class="btn btn-primary w-75" style="margin: auto">Rs.{{$courses->pricing}} BUY NOW</a>
+         @endif
+
+
     </div>
     <div class="container">
         <h3>Description</h3>
 
-        <p> Go from 0 to 100 with Harkirat Singh Live. Learn basics to advanced MERN, Basics to advanced Devops, System design and build 3 projects through this journey   </p>
+        <p> {{$courses->course_desc}}   </p>
         <h3>Career</h3>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque, doloremque aliquid? Culpa facilis vel sed odio voluptate quaerat excepturi non animi iure su</p>
+        <p>L{{$courses->career}}/p>
         <h3>Scope</h3>
         <ul>
-            <li>Lorem, ipsum dolor.</li>
-            <li>Lorem, ipsum dolor.</li>
-            <li>Lorem, ipsum dolor.</li>
-            <li>Lorem, ipsum dolor.</li>
-            <li>Lorem, ipsum dolor.</li>
+            <li>{{$courses->scope}}</li>
+            
+            
         </ul>
         <h3>Faculty Name</h3>
-        <p>Lorem, ipsum.</p>
+        <p>{{$courses->faculty_name}}</p>
+        <h3>PlayList Video</h3>
+        @php
+            $list=explode(',',$courses->playlist_name)
+        @endphp
+        <div class="row">
+        @foreach($list as $key=>$val)
+            @if($key<=1)
+            <div class="col-md-4">
+                <div class="card m-3">
+                    <div class="card-body">
+                        <iframe src="{{$val}}" height="100px" width="100%"></iframe>
+                    </div>
+                </div>
+            </div>
+            @else
+            <div class="col-md-4">
+                <div class="card m-3">
+                    <div class="card-body">
+                         <iframe src="{{ $val }}" height="100px" width="100%" {{ $payment!==null ? '' : 'style=pointer-events:none;' }}
+ frameborder="0"></iframe>
+
+                    </div>
+                </div>
+            </div>
+            @endif
+        @endforeach
+        </div>
     </div>
 @endsection

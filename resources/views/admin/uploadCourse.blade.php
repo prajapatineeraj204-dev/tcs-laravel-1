@@ -2,68 +2,75 @@
 
 @section('content')
     <div class="container-fluid py-6">
-        <form action="{{ route('product.store') }}" method="post" enctype="multipart/form-data" id="productsubmit">
+        @if(session()->get('success'))
+            <div class="alert alert-primary text-white" role="alert">
+             {{session()->get('success')}}
+            </div>
+        @endif
+        <form action="{{ url('admin/upload_course') }}" method="post" enctype="multipart/form-data" multiple>
             @csrf
             <div class="col-md-4 ">
                 <div class="mb-3">
-                    <label class="form-label" for="validationCustom01">Course Name</label>
-                    <input name="product_name" type="text" class="form-control" id="validationCustom01" placeholder="Course Name" required="">
+                    <label class="form-label">Course Name</label>
+                    <input name="course_name" type="text" class="form-control"  placeholder="Course Name" required="">
                     @error('product_name')
                         <span class="invalid-feedback" role="alert">
                             {{-- <strong>{{ $message }}</strong> --}}
                         </span>
                     @enderror
-                    <label class="form-label" for="validationCustom01">Course Description</label>
-                    <input name="product_name" type="text" class="form-control" id="validationCustom01" placeholder="Course Description" required="">
+                    <label class="form-label">Course Description</label>
+                    <textarea name="course_desc" placeholder="Course Description" class="form-control"></textarea>
                     @error('product_name')
                     <span class="invalid-feedback" role="alert">
                         {{-- <strong>{{ $message }}</strong> --}}
                     </span>
                     @enderror
-                    <label class="form-label" for="validationCustom01">Playlist Name</label>
-                    <input name="product_name" type="text" class="form-control" id="validationCustom01" placeholder="Playlist Name" required="">
+                    <label class="form-label">Playlist Name</label>
+                    <input name="playlist_name[]" type="text" class="form-control"  placeholder="Playlist Name" required="">
+                    <div class="plalistname"></div>
+                    <div onclick="playlist()" class="btn btn-danger">+</div><br>
                     @error('product_name')
                     <span class="invalid-feedback" role="alert">
                         {{-- <strong>{{ $message }}</strong> --}}
                     </span>
                     @enderror
-                    <label class="form-label" for="validationCustom01">Scope</label>
-                    <input name="product_name" type="text" class="form-control" id="validationCustom01" placeholder="Scope" required="">
+                    <label class="form-label">Scope</label>
+                    <input name="scope" type="text" class="form-control"  placeholder="Scope" required="">
                     @error('product_name')
                     <span class="invalid-feedback" role="alert">
                         {{-- <strong>{{ $message }}</strong> --}}
                     </span>
                     @enderror
-                    <label class="form-label" for="validationCustom01">Career</label>
-                    <input name="product_name" type="text" class="form-control" id="validationCustom01" placeholder="Career" required="">
+                    <label class="form-label">Career</label>
+                    <input name="career" type="text" class="form-control"  placeholder="Career" required="">
                     @error('product_name')
                         <span class="invalid-feedback" role="alert">
                             {{-- <strong>{{ $message }}</strong> --}}
                         </span>
                     @enderror
-                    <label class="form-label" for="validationCustom01">Faculty Name</label>
-                    <input name="product_name" type="text" class="form-control" id="validationCustom01" placeholder="Faculty Name" required="">
+                    <label class="form-label">Faculty Name</label>
+                    <input name="faculty_name" type="text" class="form-control"  placeholder="Faculty Name" required="">
                     @error('product_name')
                         <span class="invalid-feedback" role="alert">
                             {{-- <strong>{{ $message }}</strong> --}}
                         </span>
                     @enderror
-                    <label class="form-label" for="validationCustom01">Duration </label>
-                    <input name="product_name" type="number" class="form-control" id="validationCustom01" placeholder="Duration" required="">
+                    <label class="form-label">Duration </label>
+                    <input name="duration" type="number" class="form-control"  placeholder="Duration" required="">
                     @error('product_name')
                         <span class="invalid-feedback" role="alert">
                             {{-- <strong>{{ $message }}</strong> --}}
                         </span>
                     @enderror
-                    <label class="form-label" for="validationCustom01">Validity </label>
-                    <input name="product_name" type="date" class="form-control" id="validationCustom01" placeholder="Validity" required="">
+                    <label class="form-label">Validity </label>
+                    <input name="validity" type="date" class="form-control"  placeholder="Validity" required="">
                     @error('product_name')
                         <span class="invalid-feedback" role="alert">
                             {{-- <strong>{{ $message }}</strong> --}}
                         </span>
                     @enderror
-                    <label class="form-label" for="validationCustom01">Pricing</label>
-                    <input name="product_name" type="text" class="form-control" id="validationCustom01" placeholder="Pricing" required="">
+                    <label class="form-label">Pricing</label>
+                    <input name="pricing" type="number" class="form-control"  placeholder="Pricing" required="">
                     @error('product_name')
                         <span class="invalid-feedback" role="alert">
                             {{-- <strong>{{ $message }}</strong> --}}
@@ -71,7 +78,7 @@
                     @enderror
                 </div>
             </div>
-            <button class="btn btn-primary" type="submit">Submit form</button>
+            <button class="btn btn-primary" type="submit">Submit</button>
         </form>
     </div>
 @endsection
@@ -117,5 +124,11 @@
                 event.preventDefault();
             }
         })
+    </script>
+    <script type="text/javascript">
+        function playlist(){
+            var html='<input name="playlist_name[]" type="text" class="form-control"  placeholder="Playlist Name" >';
+            $('.plalistname').append(html);
+        }
     </script>
 @endpush
