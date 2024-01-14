@@ -50,6 +50,10 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/users', [App\Http\Controllers\AdminController::class, 'users'])->name('users');
     Route::post('/adduser', [App\Http\Controllers\AdminController::class, 'adduser'])->name('adduser');
     Route::get('/uploadCourse', [App\Http\Controllers\AdminController::class, 'uploadCourse'])->name('uploadCourse');
+    Route::get('/courseAll', [App\Http\Controllers\AdminController::class, 'courseAll'])->name('courseAll');
+    Route::get('/courseDelete/{id}', [App\Http\Controllers\AdminController::class, 'courseDelete'])->name('courseDelete');
+    Route::get('/courseEdit/{id}', [App\Http\Controllers\AdminController::class, 'courseEdit'])->name('courseEdit');
+    Route::put('/courseUpdate/{id}', [App\Http\Controllers\AdminController::class, 'courseUpdate'])->name('courseUpdate');
     Route::post('/upload_course', [App\Http\Controllers\AdminController::class, 'upload_course'])->name('upload_course');
 
     Route::get('/useredit/{id}', [App\Http\Controllers\AdminController::class, 'useredit'])->name('useredit');

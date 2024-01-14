@@ -4,21 +4,25 @@
     <div class=".container-fluid w-100 bg-primary h-25 p-0 ">
         <h3 class="text-center text-white">{{$courses->course_name}} </h3>
     </div>
-                        @if($message = Session::get('success'))
-                            <div class="alert alert-success alert-dismissible fade {{ Session::has('success') ? 'show' : 'in' }}" role="alert">
+                        @if($message = session()->get('success'))
+                            
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
                                 <strong>Success!</strong> {{ $message }}
-                            </div>
+                            
                         @endif
     <div class="container d-flex h-50  flex-column ">
         <img src="{{ asset('/assets/img/couress.png') }}" alt="coures details" class="h-25 w-75" width="400px" height="200px" style="margin: auto">
-        @if($payment!==null)     
-        @else
-         <a href="{{url('/razorpay-payment',$courses->id)}}" class="btn btn-primary w-75" style="margin: auto">Rs.{{$courses->pricing}} BUY NOW</a>
-         @endif
+        @if(Auth::check())
+                @if($payment==null)
+                <a href="{{url('/razorpay-payment',$courses->id)}}" class="btn btn-primary w-100" style="margin: auto">Rs.{{$courses->pricing}} BUY NOW</a>
+                @endif
+           
+         @else
+         <a href="{{route('login')}}" class="btn btn-primary w-100">Rs.{{$courses->pricing}} BUY NOW</a>
 
+         @endif
 
     </div>
     <div class="container">
@@ -53,8 +57,7 @@
             <div class="col-md-4">
                 <div class="card m-3">
                     <div class="card-body">
-                         <iframe src="{{ $val }}" height="100px" width="100%" {{ $payment!==null ? '' : 'style=pointer-events:none;' }}
- frameborder="0"></iframe>
+                         <iframe src="{{ $val }}" height="100px" width="100%" style="pointer-events:none;" frameborder="0"></iframe>
 
                     </div>
                 </div>

@@ -9,11 +9,8 @@
             <div class="card-body">
                 <h5 class="card-title">{{$course->course_name}}</h5>
                 <p class="card-text">{{$course->course_desc}}</p>
-                @if(auth()->check())
+                
                 <a href="{{route('practicalTrainingsDetails',$course->id)}}" class="btn btn-primary w-100">View Details</a>
-                @else
-                <a href="{{route('login')}}" class="btn btn-primary w-100">View Details</a>
-                @endif
             </div>
         </div>
         @endforeach

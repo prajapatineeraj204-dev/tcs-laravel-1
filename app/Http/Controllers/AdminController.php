@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\User;
+use App\Models\TcsUploadCourse;
 use DataTables;
 use DB;
+
 
 
 class AdminController extends Controller
@@ -82,11 +84,58 @@ class AdminController extends Controller
   }
 
   public function upload_course(Request $request)
-  {
-      
-        $arrayPlaylist=implode(',',$request->playlist_name);
+  { 
+       $request->validate([
+        'file.*' => 'required|mimes:mp4,mov,avi',
+        ]);
+                $arrayPlaylist=implode(',',$request->playlist_name);
+
+        $uploadedVideos = [];
+
+        foreach ($request->file('file') as $file) {
+            $name = $file->getClientOriginalName();
+            $file->move('video', $name);
+            $uploadedVideos[] = 'video/' . $name;
+        }
+        $implodedPaths = implode(',', $uploadedVideos);
         
-      $res=DB::table('tcs_upload_course')->insert([
+        $res = DB::table('tcs_upload_course')->insert([
+            'course_name' => $request->course_name,
+            'course_desc' => $request->course_desc,
+            'scope' => $request->scope,
+            'career' => $request->career,
+            'faculty_name' => $request->faculty_name,
+            'duration' => $request->duration,
+            'validity' => $request->validity,
+            'pricing' => $request->pricing,
+            'playlist_name' => $arrayPlaylist,
+            'video' => $implodedPaths,
+        ]);
+        if ($res) {
+            return redirect()->back()->with('success', 'Course and videos uploaded successfully!');
+        } else {
+            return redirect()->back()->with('error', 'Failed to upload course and videos.');
+        }
+
+  }
+
+  public function courseAll()
+  {
+    $course=DB::table('tcs_upload_course')->get();
+    return view('admin.courseshow',compact('course'));
+  }
+
+  public function courseEdit($id)
+  {
+    $course=DB::table('tcs_upload_course')->where('id',$id)->first();
+    return view('admin.uploadCourse',compact('course'));    
+  }
+
+  public function courseUpdate(Request $request,$id){
+
+    $arrayPlaylist=implode(',',$request->playlist_name);
+        
+      $res=TcsUploadCourse::find($id)->update([
         'course_name'=>$request->course_name,
         'course_desc'=>$request->course_desc,
         'scope'=>$request->scope,
@@ -99,8 +148,12 @@ class AdminController extends Controller
 
       ]);
       if($res){
-        return redirect()->back()->with('success','Course Uploade Successfully');
+        return redirect()->back()->with('success','Course Update Successfully');
       }
+  }
 
+  public function courseDelete($id){
+    $course=TcsUploadCourse::find($id)->delete();
+    return redirect()->back()->with('success','Course delete Successfully');
   }
 }

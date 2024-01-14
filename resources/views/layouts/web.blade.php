@@ -133,6 +133,11 @@
                                 $fristName = $fullName;
                             }
                     @endphp
+                    @php
+                        $paycourse=DB::table('payments')->where('user_id',Auth::user()->id)->get();
+
+
+                    @endphp
 
                    <li class="nav-item dropdown">
                      <i style="color: white; padding:12px;" class="fa fa-user" aria-hidden="true"></i> 
@@ -140,6 +145,7 @@
                         <ul class="dropdown-menu" style="position: absolute; left: -50px;" >
                         <li><a class="dropdown-item" href="/profile">Profile</a></li>
                            <li><a class="dropdown-item" href="#">Setting</a></li>
+                           <li><a href="#"  class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal">Course List</a></li>
                            <a class="nav-link"  href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();" >
@@ -222,6 +228,39 @@
             </div>
         </footer>
     </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Course List</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+            @if(Auth::check())
+             @if($paycourse)
+                @foreach($paycourse as $course)
+                @php
+                    $courses=DB::table('tcs_upload_course')->where('id',$course->course_id)->first();
+                @endphp
+            <div class="col-md-6">
+           
+               <div class="card" style="border: 1px solid gray;">
+                  <div class="card-body">
+                    <h5 class="card-title">{{$courses->course_name}}</h5>
+                    <a href="#" class="btn btn-primary">All Video</a>
+                  </div>
+                </div>
+               
+                </div> 
+                 @endforeach
+            @endif
+            @endif
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
