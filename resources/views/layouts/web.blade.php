@@ -145,7 +145,7 @@
                         <ul class="dropdown-menu" style="position: absolute; left: -50px;" >
                         <li><a class="dropdown-item" href="/profile">Profile</a></li>
                            <li><a class="dropdown-item" href="#">Setting</a></li>
-                           <li><a href="#"  class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal">Course List</a></li>
+                           <li><a href="{{url('course')}}"  class="dropdown-item">Course List</a></li>
                            <a class="nav-link"  href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();" >

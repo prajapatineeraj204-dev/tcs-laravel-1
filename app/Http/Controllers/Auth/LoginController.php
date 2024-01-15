@@ -28,12 +28,12 @@ class LoginController extends Controller
      */
     protected function authenticated($request, $user)
     {
-        if ($user->role == 3) {
+        if ($user->role == 1) {
             return redirect('/super-admin');
         }
         elseif ($user->role == 2) {
             return redirect('/admin');
-        }elseif($user->role == 1){
+        }elseif($user->role == 3){
             return redirect('/');
         }
         return redirect('/');

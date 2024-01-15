@@ -14,8 +14,9 @@
                         @endif
     <div class="container d-flex h-50  flex-column ">
         <img src="{{ asset('/assets/img/couress.png') }}" alt="coures details" class="h-25 w-75" width="400px" height="200px" style="margin: auto">
+
         @if(Auth::check())
-                @if($payment==null)
+                @if(!isset($payment))
                 <a href="{{url('/razorpay-payment',$courses->id)}}" class="btn btn-primary w-100" style="margin: auto">Rs.{{$courses->pricing}} BUY NOW</a>
                 @endif
            
@@ -67,3 +68,5 @@
         </div>
     </div>
 @endsection
+
+

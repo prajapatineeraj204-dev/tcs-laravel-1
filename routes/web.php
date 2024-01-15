@@ -102,8 +102,13 @@ Route::middleware('auth', 'verified')->group(function () {
    
 
 });
- Route::get('razorpay-payment/{id}', [PaymentController::class, 'index']);
+Route::get('razorpay-payment/{id}', [PaymentController::class, 'index']);
 Route::post('razorpay-payment', [PaymentController::class, 'store'])->name('razorpay.payment.store');
+
+Route::get('course',function(){
+    return view('PracticalTraining.course');
+});
+Route::get('/course/{id}',[PracticalTrainingsDetails::class,"courseVideo"])->name('course_video');
 
 Route::get('/mentorship_for_students', [MentorController::class, 'index'])->name('forStudents');
 Route::get('/mentorship_for_professionals', [MentorController::class, 'Professionals'])->name('forProfessionals');
